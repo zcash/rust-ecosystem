@@ -1,0 +1,46 @@
+name: cargo-vet audits
+
+on:
+  push:
+    branches:
+      - 'main'
+    paths:
+      - '.github/workflows/aggregate-audits.yml'
+      - 'supply-chain/sources.txt'
+  repository_dispatch:
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  aggregate:
+    name: Aggregate
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+        with:
+          ref: ${{ github.head_ref }}
+
+      - uses: actions-rs/toolchain@v1
+        with:
+          toolchain: stable
+          override: true
+
+      - name: Install cargo-vet
+        uses: actions-rs/cargo@v1
+        with:
+          command: install
+          args: --git https://github.com/mozilla/cargo-vet.git cargo-vet
+
+      - name: Aggregate audits
+        uses: actions-rs/cargo@v1
+        with:
+          command: vet
+          args: aggregate --output-file supply-chain/audits.toml supply-chain/sources.txt
+
+      - name: Commit and push aggregated audits
+        uses: stefanzweifel/git-auto-commit-action@v4
+        with:
+          commit_message: Update aggregated cargo-vet audits
+          file_pattern: 'supply-chain/audits.toml'
