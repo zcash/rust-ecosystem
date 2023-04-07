@@ -41,11 +41,29 @@ criteria = "safe-to-deploy"
 delta = "1.0.68 -> 1.0.69"
 aggregated-from = "https://raw.githubusercontent.com/zcash/zcash/master/qa/supply-chain/audits.toml"
 
+[[audits.anyhow]]
+who = "Sean Bowe <ewillbefull@gmail.com>"
+criteria = "safe-to-deploy"
+delta = "1.0.69 -> 1.0.70"
+aggregated-from = "https://raw.githubusercontent.com/zcash/zcash/master/qa/supply-chain/audits.toml"
+
+[[audits.arrayref]]
+who = "Sean Bowe <ewillbefull@gmail.com>"
+criteria = "safe-to-deploy"
+delta = "0.3.6 -> 0.3.7"
+aggregated-from = "https://raw.githubusercontent.com/zcash/zcash/master/qa/supply-chain/audits.toml"
+
 [[audits.bellman]]
 who = "Jack Grigg <jack@z.cash>"
 criteria = ["crypto-reviewed", "safe-to-deploy"]
 delta = "0.13.0 -> 0.13.1"
 notes = "Adds multi-threaded batch validation, which I checked against the existing single-threaded batch validation."
+aggregated-from = "https://raw.githubusercontent.com/zcash/zcash/master/qa/supply-chain/audits.toml"
+
+[[audits.bellman]]
+who = "Sean Bowe <ewillbefull@gmail.com>"
+criteria = "safe-to-deploy"
+delta = "0.13.1 -> 0.14.0"
 aggregated-from = "https://raw.githubusercontent.com/zcash/zcash/master/qa/supply-chain/audits.toml"
 
 [[audits.blake2b_simd]]
@@ -73,6 +91,13 @@ aggregated-from = "https://raw.githubusercontent.com/zcash/zcash/master/qa/suppl
 who = "Jack Grigg <jack@z.cash>"
 criteria = "safe-to-deploy"
 delta = "0.7.0 -> 0.7.1"
+aggregated-from = "https://raw.githubusercontent.com/zcash/zcash/master/qa/supply-chain/audits.toml"
+
+[[audits.bls12_381]]
+who = "Sean Bowe <ewillbefull@gmail.com>"
+criteria = "safe-to-deploy"
+delta = "0.7.1 -> 0.8.0"
+notes = "I previously reviewed the crypto-sensitive portions of these changes as well."
 aggregated-from = "https://raw.githubusercontent.com/zcash/zcash/master/qa/supply-chain/audits.toml"
 
 [[audits.bumpalo]]
@@ -171,6 +196,12 @@ who = "Jack Grigg <jack@z.cash>"
 criteria = "safe-to-deploy"
 delta = "0.2.2 -> 0.2.5"
 notes = "Unsafe changes just introduce `#[inline(never)]` wrappers."
+aggregated-from = "https://raw.githubusercontent.com/zcash/zcash/master/qa/supply-chain/audits.toml"
+
+[[audits.cpufeatures]]
+who = "Sean Bowe <ewillbefull@gmail.com>"
+criteria = "safe-to-deploy"
+delta = "0.2.5 -> 0.2.6"
 aggregated-from = "https://raw.githubusercontent.com/zcash/zcash/master/qa/supply-chain/audits.toml"
 
 [[audits.crossbeam-channel]]
@@ -401,6 +432,12 @@ criteria = "safe-to-deploy"
 delta = "0.12.0 -> 0.12.1"
 aggregated-from = "https://raw.githubusercontent.com/zcash/zcash/master/qa/supply-chain/audits.toml"
 
+[[audits.ff]]
+who = "Sean Bowe <ewillbefull@gmail.com>"
+criteria = "safe-to-deploy"
+delta = "0.12.1 -> 0.13.0"
+aggregated-from = "https://raw.githubusercontent.com/zcash/zcash/master/qa/supply-chain/audits.toml"
+
 [[audits.futures-channel]]
 who = "Jack Grigg <jack@z.cash>"
 criteria = "safe-to-deploy"
@@ -412,6 +449,13 @@ aggregated-from = "https://raw.githubusercontent.com/zcash/zcash/master/qa/suppl
 who = "Jack Grigg <jack@electriccoin.co>"
 criteria = "safe-to-deploy"
 delta = "0.3.26 -> 0.3.27"
+aggregated-from = "https://raw.githubusercontent.com/zcash/zcash/master/qa/supply-chain/audits.toml"
+
+[[audits.futures-channel]]
+who = "Daira Emma Hopwood <daira@jacaranda.org>"
+criteria = "safe-to-deploy"
+delta = "0.3.27 -> 0.3.28"
+notes = "Dependency updates, and an MSRV update to Rust 1.56."
 aggregated-from = "https://raw.githubusercontent.com/zcash/zcash/master/qa/supply-chain/audits.toml"
 
 [[audits.futures-core]]
@@ -427,6 +471,16 @@ criteria = "safe-to-deploy"
 delta = "0.3.26 -> 0.3.27"
 aggregated-from = "https://raw.githubusercontent.com/zcash/zcash/master/qa/supply-chain/audits.toml"
 
+[[audits.futures-core]]
+who = "Daira Emma Hopwood <daira@jacaranda.org>"
+criteria = "safe-to-deploy"
+delta = "0.3.27 -> 0.3.28"
+notes = """
+Adds an optimization in unsafe code (https://github.com/rust-lang/futures-rs/pull/2723).
+The new code in AtomicWaker calls self.waker.get() twice assuming the same resulting pointer, but this appears to be correct because the AtomicWaker is in the required locked state.
+"""
+aggregated-from = "https://raw.githubusercontent.com/zcash/zcash/master/qa/supply-chain/audits.toml"
+
 [[audits.futures-task]]
 who = "Jack Grigg <jack@z.cash>"
 criteria = "safe-to-deploy"
@@ -439,6 +493,20 @@ criteria = "safe-to-deploy"
 delta = "0.3.26 -> 0.3.27"
 aggregated-from = "https://raw.githubusercontent.com/zcash/zcash/master/qa/supply-chain/audits.toml"
 
+[[audits.futures-task]]
+who = "Daira Emma Hopwood <daira@jacaranda.org>"
+criteria = "safe-to-deploy"
+delta = "0.3.26 -> 0.3.28"
+notes = "Dependency updates, and an MSRV update to Rust 1.56."
+aggregated-from = "https://raw.githubusercontent.com/zcash/zcash/master/qa/supply-chain/audits.toml"
+
+[[audits.futures-task]]
+who = "Daira Emma Hopwood <daira@jacaranda.org>"
+criteria = "safe-to-deploy"
+delta = "0.3.27 -> 0.3.28"
+notes = "Dependency updates, and an MSRV update to Rust 1.56."
+aggregated-from = "https://raw.githubusercontent.com/zcash/zcash/master/qa/supply-chain/audits.toml"
+
 [[audits.futures-util]]
 who = "Jack Grigg <jack@z.cash>"
 criteria = "safe-to-deploy"
@@ -448,6 +516,12 @@ Changes to `unsafe` usage are to split `Either::project` into `Either::as_pin_re
 `Either::as_pin_mut`. The new code follows the old code's pattern, and also now has SAFETY
 documentation.
 """
+aggregated-from = "https://raw.githubusercontent.com/zcash/zcash/master/qa/supply-chain/audits.toml"
+
+[[audits.generic-array]]
+who = "Sean Bowe <ewillbefull@gmail.com>"
+criteria = "safe-to-deploy"
+delta = "0.14.6 -> 0.14.7"
 aggregated-from = "https://raw.githubusercontent.com/zcash/zcash/master/qa/supply-chain/audits.toml"
 
 [[audits.getrandom]]
@@ -472,6 +546,12 @@ criteria = "safe-to-deploy"
 delta = "0.12.0 -> 0.12.1"
 aggregated-from = "https://raw.githubusercontent.com/zcash/zcash/master/qa/supply-chain/audits.toml"
 
+[[audits.group]]
+who = "Sean Bowe <ewillbefull@gmail.com>"
+criteria = "safe-to-deploy"
+delta = "0.12.1 -> 0.13.0"
+aggregated-from = "https://raw.githubusercontent.com/zcash/zcash/master/qa/supply-chain/audits.toml"
+
 [[audits.halo2_gadgets]]
 who = "Jack Grigg <jack@z.cash>"
 criteria = ["crypto-reviewed", "safe-to-deploy"]
@@ -483,6 +563,13 @@ aggregated-from = "https://raw.githubusercontent.com/zcash/zcash/master/qa/suppl
 who = "Jack Grigg <jack@z.cash>"
 criteria = ["crypto-reviewed", "safe-to-deploy"]
 delta = "0.1.0 -> 0.2.0"
+notes = "The ECC core team maintains this crate, and we have reviewed every line."
+aggregated-from = "https://raw.githubusercontent.com/zcash/zcash/master/qa/supply-chain/audits.toml"
+
+[[audits.halo2_legacy_pdqsort]]
+who = "Sean Bowe <ewillbefull@gmail.com>"
+criteria = "safe-to-deploy"
+version = "0.1.0"
 notes = "The ECC core team maintains this crate, and we have reviewed every line."
 aggregated-from = "https://raw.githubusercontent.com/zcash/zcash/master/qa/supply-chain/audits.toml"
 
@@ -530,6 +617,12 @@ delta = "1.8.1 -> 1.9.1"
 notes = "I'm satisfied that the assertion guarding the new unsafe block is correct."
 aggregated-from = "https://raw.githubusercontent.com/zcash/zcash/master/qa/supply-chain/audits.toml"
 
+[[audits.indexmap]]
+who = "Sean Bowe <ewillbefull@gmail.com>"
+criteria = "safe-to-deploy"
+delta = "1.9.2 -> 1.9.3"
+aggregated-from = "https://raw.githubusercontent.com/zcash/zcash/master/qa/supply-chain/audits.toml"
+
 [[audits.inout]]
 who = "Daira Hopwood <daira@jacaranda.org>"
 criteria = "safe-to-deploy"
@@ -541,6 +634,12 @@ aggregated-from = "https://raw.githubusercontent.com/zcash/zcash/master/qa/suppl
 who = "Jack Grigg <jack@z.cash>"
 criteria = "safe-to-deploy"
 delta = "2.5.0 -> 2.7.1"
+aggregated-from = "https://raw.githubusercontent.com/zcash/zcash/master/qa/supply-chain/audits.toml"
+
+[[audits.ipnet]]
+who = "Sean Bowe <ewillbefull@gmail.com>"
+criteria = "safe-to-deploy"
+delta = "2.7.1 -> 2.7.2"
 aggregated-from = "https://raw.githubusercontent.com/zcash/zcash/master/qa/supply-chain/audits.toml"
 
 [[audits.itoa]]
@@ -565,6 +664,13 @@ notes = """
 - Adds `Array.length` setter and `Intl.RelativeTimeFormat`; I checked these against their
   MDN documentation.
 """
+aggregated-from = "https://raw.githubusercontent.com/zcash/zcash/master/qa/supply-chain/audits.toml"
+
+[[audits.jubjub]]
+who = "Sean Bowe <ewillbefull@gmail.com>"
+criteria = "safe-to-deploy"
+delta = "0.9.0 -> 0.10.0"
+notes = "I previously reviewed the crypto-sensitive portions of these changes as well."
 aggregated-from = "https://raw.githubusercontent.com/zcash/zcash/master/qa/supply-chain/audits.toml"
 
 [[audits.libm]]
@@ -603,6 +709,12 @@ who = "Jack Grigg <jack@z.cash>"
 criteria = "safe-to-deploy"
 delta = "0.4.16 -> 0.4.17"
 notes = "I confirmed that the unsafe transmutes are fine; NonZeroU128 and NonZeroI128 are `#[repr(transparent)]` wrappers around u128 and i128 respectively."
+aggregated-from = "https://raw.githubusercontent.com/zcash/zcash/master/qa/supply-chain/audits.toml"
+
+[[audits.maybe-rayon]]
+who = "Sean Bowe <ewillbefull@gmail.com>"
+criteria = "safe-to-deploy"
+version = "0.1.1"
 aggregated-from = "https://raw.githubusercontent.com/zcash/zcash/master/qa/supply-chain/audits.toml"
 
 [[audits.memuse]]
@@ -737,6 +849,12 @@ criteria = "safe-to-deploy"
 delta = "0.2.0 -> 0.3.0"
 aggregated-from = "https://raw.githubusercontent.com/zcash/zcash/master/qa/supply-chain/audits.toml"
 
+[[audits.pairing]]
+who = "Sean Bowe <ewillbefull@gmail.com>"
+criteria = "safe-to-deploy"
+delta = "0.22.0 -> 0.23.0"
+aggregated-from = "https://raw.githubusercontent.com/zcash/zcash/master/qa/supply-chain/audits.toml"
+
 [[audits.parity-scale-codec]]
 who = "Jack Grigg <jack@z.cash>"
 criteria = "safe-to-deploy"
@@ -783,6 +901,12 @@ aggregated-from = "https://raw.githubusercontent.com/zcash/zcash/master/qa/suppl
 who = "Jack Grigg <jack@z.cash>"
 criteria = "safe-to-deploy"
 delta = "0.4.0 -> 0.4.1"
+aggregated-from = "https://raw.githubusercontent.com/zcash/zcash/master/qa/supply-chain/audits.toml"
+
+[[audits.pasta_curves]]
+who = "Sean Bowe <ewillbefull@gmail.com>"
+criteria = "safe-to-deploy"
+delta = "0.4.1 -> 0.5.1"
 aggregated-from = "https://raw.githubusercontent.com/zcash/zcash/master/qa/supply-chain/audits.toml"
 
 [[audits.phf]]
@@ -887,10 +1011,52 @@ I did not verify that the change was move-only, but there is no unsafe code affe
 """
 aggregated-from = "https://raw.githubusercontent.com/zcash/zcash/master/qa/supply-chain/audits.toml"
 
+[[audits.reddsa]]
+who = "Sean Bowe <ewillbefull@gmail.com>"
+criteria = "safe-to-deploy"
+delta = "0.3.0 -> 0.5.0"
+aggregated-from = "https://raw.githubusercontent.com/zcash/zcash/master/qa/supply-chain/audits.toml"
+
+[[audits.redjubjub]]
+who = "Daira Emma Hopwood <daira@jacaranda.org>"
+criteria = ["safe-to-deploy", "crypto-reviewed"]
+version = "0.7.0"
+notes = """
+This crate is a thin wrapper around the `reddsa` crate, which I did not review. I also
+did not review tests or verify test vectors.
+
+The comment on `batch::Verifier::verify` has an error in the batch verification equation,
+filed as https://github.com/ZcashFoundation/redjubjub/issues/163 . It does not affect the
+implementation which just delegates to `reddsa`. `reddsa` has the same comment bug filed as
+https://github.com/ZcashFoundation/reddsa/issues/52 , but its batch verification implementation
+is correct. (I checked the latter against https://zips.z.cash/protocol/protocol.pdf#reddsabatchvalidate
+which has had previous cryptographic review by NCC group; see finding NCC-Zcash2018-009 in
+https://research.nccgroup.com/wp-content/uploads/2020/07/NCC_Group_Zcash2018_Public_Report_2019-01-30_v1.3.pdf ).
+"""
+aggregated-from = "https://raw.githubusercontent.com/zcash/zcash/master/qa/supply-chain/audits.toml"
+
 [[audits.regex]]
 who = "Jack Grigg <jack@z.cash>"
 criteria = "safe-to-deploy"
 delta = "1.7.0 -> 1.7.1"
+aggregated-from = "https://raw.githubusercontent.com/zcash/zcash/master/qa/supply-chain/audits.toml"
+
+[[audits.regex]]
+who = "Sean Bowe <ewillbefull@gmail.com>"
+criteria = "safe-to-deploy"
+delta = "1.7.1 -> 1.7.3"
+aggregated-from = "https://raw.githubusercontent.com/zcash/zcash/master/qa/supply-chain/audits.toml"
+
+[[audits.regex-syntax]]
+who = "Sean Bowe <ewillbefull@gmail.com>"
+criteria = "safe-to-deploy"
+delta = "0.6.28 -> 0.6.29"
+aggregated-from = "https://raw.githubusercontent.com/zcash/zcash/master/qa/supply-chain/audits.toml"
+
+[[audits.rustc-demangle]]
+who = "Sean Bowe <ewillbefull@gmail.com>"
+criteria = "safe-to-deploy"
+delta = "0.1.21 -> 0.1.22"
 aggregated-from = "https://raw.githubusercontent.com/zcash/zcash/master/qa/supply-chain/audits.toml"
 
 [[audits.ryu]]
@@ -948,6 +1114,12 @@ aggregated-from = "https://raw.githubusercontent.com/zcash/zcash/master/qa/suppl
 who = "Daira Hopwood <daira@jacaranda.org>"
 criteria = "safe-to-deploy"
 delta = "1.0.91 -> 1.0.98"
+aggregated-from = "https://raw.githubusercontent.com/zcash/zcash/master/qa/supply-chain/audits.toml"
+
+[[audits.syn]]
+who = "Sean Bowe <ewillbefull@gmail.com>"
+criteria = "safe-to-deploy"
+delta = "1.0.102 -> 1.0.104"
 aggregated-from = "https://raw.githubusercontent.com/zcash/zcash/master/qa/supply-chain/audits.toml"
 
 [[audits.syn]]
@@ -1045,6 +1217,12 @@ who = "Jack Grigg <jack@electriccoin.co>"
 criteria = "safe-to-deploy"
 delta = "0.5.1 -> 0.6.1"
 notes = "Fixes a bug in parsing negative minutes in datetime string offsets."
+aggregated-from = "https://raw.githubusercontent.com/zcash/zcash/master/qa/supply-chain/audits.toml"
+
+[[audits.toml_edit]]
+who = "Sean Bowe <ewillbefull@gmail.com>"
+criteria = "safe-to-deploy"
+delta = "0.19.7 -> 0.19.8"
 aggregated-from = "https://raw.githubusercontent.com/zcash/zcash/master/qa/supply-chain/audits.toml"
 
 [[audits.try-lock]]
@@ -1432,9 +1610,21 @@ delta = "1.4.3 -> 1.5.7"
 notes = "The zeroize_c_string unit test has UB, but that's very unlikely to cause a problem in practice."
 aggregated-from = "https://raw.githubusercontent.com/zcash/zcash/master/qa/supply-chain/audits.toml"
 
+[[audits.zeroize]]
+who = "Sean Bowe <ewillbefull@gmail.com>"
+criteria = "safe-to-deploy"
+delta = "1.5.7 -> 1.6.0"
+aggregated-from = "https://raw.githubusercontent.com/zcash/zcash/master/qa/supply-chain/audits.toml"
+
 [[audits.zeroize_derive]]
 who = "Jack Grigg <jack@z.cash>"
 criteria = "safe-to-deploy"
 delta = "1.3.2 -> 1.3.3"
 notes = "Removes `T: Drop` bound from `impl<T: Zeroize> Drop for SomeType<T>`. I agree it was unnecessary."
+aggregated-from = "https://raw.githubusercontent.com/zcash/zcash/master/qa/supply-chain/audits.toml"
+
+[[audits.zeroize_derive]]
+who = "Sean Bowe <ewillbefull@gmail.com>"
+criteria = "safe-to-deploy"
+delta = "1.3.3 -> 1.4.1"
 aggregated-from = "https://raw.githubusercontent.com/zcash/zcash/master/qa/supply-chain/audits.toml"
