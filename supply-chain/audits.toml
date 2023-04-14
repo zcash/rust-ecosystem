@@ -21,6 +21,12 @@ delta = "0.4.3 -> 0.5.1"
 notes = "Adds an AeadCore::generate_nonce function to generate random nonces, given a CryptoRng."
 aggregated-from = "https://raw.githubusercontent.com/zcash/zcash/master/qa/supply-chain/audits.toml"
 
+[[audits.aead]]
+who = "Jack Grigg <jack@electriccoin.co>"
+criteria = ["safe-to-deploy", "crypto-reviewed"]
+delta = "0.5.1 -> 0.5.2"
+aggregated-from = "https://raw.githubusercontent.com/zcash/zcash/master/qa/supply-chain/audits.toml"
+
 [[audits.anyhow]]
 who = "Jack Grigg <jack@z.cash>"
 criteria = "safe-to-deploy"
@@ -53,6 +59,12 @@ criteria = "safe-to-deploy"
 delta = "0.3.6 -> 0.3.7"
 aggregated-from = "https://raw.githubusercontent.com/zcash/zcash/master/qa/supply-chain/audits.toml"
 
+[[audits.bech32]]
+who = "Jack Grigg <jack@electriccoin.co>"
+criteria = "safe-to-deploy"
+delta = "0.8.1 -> 0.9.1"
+aggregated-from = "https://raw.githubusercontent.com/zcash/zcash/master/qa/supply-chain/audits.toml"
+
 [[audits.bellman]]
 who = "Jack Grigg <jack@z.cash>"
 criteria = ["crypto-reviewed", "safe-to-deploy"]
@@ -64,6 +76,12 @@ aggregated-from = "https://raw.githubusercontent.com/zcash/zcash/master/qa/suppl
 who = "Sean Bowe <ewillbefull@gmail.com>"
 criteria = "safe-to-deploy"
 delta = "0.13.1 -> 0.14.0"
+aggregated-from = "https://raw.githubusercontent.com/zcash/zcash/master/qa/supply-chain/audits.toml"
+
+[[audits.bip0039]]
+who = "Jack Grigg <jack@electriccoin.co>"
+criteria = "safe-to-deploy"
+delta = "0.9.0 -> 0.10.1"
 aggregated-from = "https://raw.githubusercontent.com/zcash/zcash/master/qa/supply-chain/audits.toml"
 
 [[audits.blake2b_simd]]
@@ -184,6 +202,12 @@ criteria = "safe-to-deploy"
 delta = "1.0.11 -> 2.0.0"
 aggregated-from = "https://raw.githubusercontent.com/zcash/zcash/master/qa/supply-chain/audits.toml"
 
+[[audits.clearscreen]]
+who = "Jack Grigg <jack@electriccoin.co>"
+criteria = "safe-to-deploy"
+delta = "2.0.0 -> 2.0.1"
+aggregated-from = "https://raw.githubusercontent.com/zcash/zcash/master/qa/supply-chain/audits.toml"
+
 [[audits.constant_time_eq]]
 who = "Jack Grigg <jack@electriccoin.co>"
 criteria = ["safe-to-deploy", "crypto-reviewed"]
@@ -294,6 +318,12 @@ criteria = "safe-to-deploy"
 delta = "1.0.91 -> 1.0.92"
 aggregated-from = "https://raw.githubusercontent.com/zcash/zcash/master/qa/supply-chain/audits.toml"
 
+[[audits.cxx]]
+who = "Jack Grigg <jack@electriccoin.co>"
+criteria = "safe-to-deploy"
+delta = "1.0.92 -> 1.0.94"
+aggregated-from = "https://raw.githubusercontent.com/zcash/zcash/master/qa/supply-chain/audits.toml"
+
 [[audits.cxxbridge-flags]]
 who = "Daira Hopwood <daira@jacaranda.org>"
 criteria = "safe-to-deploy"
@@ -337,6 +367,12 @@ criteria = "safe-to-deploy"
 delta = "1.0.91 -> 1.0.92"
 aggregated-from = "https://raw.githubusercontent.com/zcash/zcash/master/qa/supply-chain/audits.toml"
 
+[[audits.cxxbridge-flags]]
+who = "Jack Grigg <jack@electriccoin.co>"
+criteria = "safe-to-deploy"
+delta = "1.0.92 -> 1.0.94"
+aggregated-from = "https://raw.githubusercontent.com/zcash/zcash/master/qa/supply-chain/audits.toml"
+
 [[audits.cxxbridge-macro]]
 who = "Daira Hopwood <daira@jacaranda.org>"
 criteria = "safe-to-deploy"
@@ -384,6 +420,23 @@ aggregated-from = "https://raw.githubusercontent.com/zcash/zcash/master/qa/suppl
 who = "Jack Grigg <jack@electriccoin.co>"
 criteria = "safe-to-deploy"
 delta = "1.0.91 -> 1.0.92"
+aggregated-from = "https://raw.githubusercontent.com/zcash/zcash/master/qa/supply-chain/audits.toml"
+
+[[audits.cxxbridge-macro]]
+who = "Jack Grigg <jack@electriccoin.co>"
+criteria = "safe-to-deploy"
+delta = "1.0.92 -> 1.0.94"
+notes = """
+Migration to `syn 2`. I didn't check the logic, but the changes look reasonable
+and I didn't notice anything that seemed like it would adversely change the
+generated code.
+"""
+aggregated-from = "https://raw.githubusercontent.com/zcash/zcash/master/qa/supply-chain/audits.toml"
+
+[[audits.directories]]
+who = "Jack Grigg <jack@electriccoin.co>"
+criteria = "safe-to-deploy"
+delta = "4.0.1 -> 5.0.0"
 aggregated-from = "https://raw.githubusercontent.com/zcash/zcash/master/qa/supply-chain/audits.toml"
 
 [[audits.dirs]]
@@ -391,6 +444,16 @@ who = "Jack Grigg <jack@z.cash>"
 criteria = "safe-to-deploy"
 delta = "2.0.2 -> 4.0.0"
 notes = "Some paths change across this upgrade (AFAICT they were bugfixes)."
+aggregated-from = "https://raw.githubusercontent.com/zcash/zcash/master/qa/supply-chain/audits.toml"
+
+[[audits.dirs-sys]]
+who = "Jack Grigg <jack@electriccoin.co>"
+criteria = "safe-to-deploy"
+delta = "0.3.7 -> 0.4.0"
+notes = """
+Changes to `unsafe` code are migrating from `winapi` to `windows-sys`. The APIs
+are equivalent, with the `windows-sys` ones being slightly more type-safe.
+"""
 aggregated-from = "https://raw.githubusercontent.com/zcash/zcash/master/qa/supply-chain/audits.toml"
 
 [[audits.ed25519-zebra]]
@@ -436,6 +499,16 @@ aggregated-from = "https://raw.githubusercontent.com/zcash/zcash/master/qa/suppl
 who = "Sean Bowe <ewillbefull@gmail.com>"
 criteria = "safe-to-deploy"
 delta = "0.12.1 -> 0.13.0"
+aggregated-from = "https://raw.githubusercontent.com/zcash/zcash/master/qa/supply-chain/audits.toml"
+
+[[audits.fpe]]
+who = "Jack Grigg <jack@electriccoin.co>"
+criteria = "safe-to-deploy"
+delta = "0.6.0 -> 0.6.1"
+notes = """
+I am the author of this crate. This release fixes a regression bug in 0.6.0, and
+was reviewed by an ECC engineer.
+"""
 aggregated-from = "https://raw.githubusercontent.com/zcash/zcash/master/qa/supply-chain/audits.toml"
 
 [[audits.futures-channel]]
@@ -518,6 +591,18 @@ documentation.
 """
 aggregated-from = "https://raw.githubusercontent.com/zcash/zcash/master/qa/supply-chain/audits.toml"
 
+[[audits.futures-util]]
+who = "Jack Grigg <jack@electriccoin.co>"
+criteria = "safe-to-deploy"
+delta = "0.3.27 -> 0.3.28"
+notes = """
+- MSRV bumped to 1.56.
+- Changes to `unsafe` code are to move a function call outside an `unsafe fn`,
+  and to call the `unsafe fn` earlier. The safety requirement of being in the
+  `POLLING` state appears to be preserved.
+"""
+aggregated-from = "https://raw.githubusercontent.com/zcash/zcash/master/qa/supply-chain/audits.toml"
+
 [[audits.generic-array]]
 who = "Sean Bowe <ewillbefull@gmail.com>"
 criteria = "safe-to-deploy"
@@ -531,6 +616,50 @@ delta = "0.2.6 -> 0.2.7"
 notes = """
 Checked that getrandom::wasi::getrandom_inner matches wasi::random_get.
 Checked that getrandom::util_libc::Weak lock ordering matches std::sys::unix::weak::DlsymWeak.
+"""
+aggregated-from = "https://raw.githubusercontent.com/zcash/zcash/master/qa/supply-chain/audits.toml"
+
+[[audits.getrandom]]
+who = "Jack Grigg <jack@electriccoin.co>"
+criteria = "safe-to-deploy"
+delta = "0.2.8 -> 0.2.9"
+notes = """
+The new `getrandom_uninit` method is introduced by retrofitting every system
+implementation to take `&mut [MaybeUninit<u8>]` instead of `&mut [u8]`.
+
+Most implementations are only altered to update their signature, and to
+internally cast the slice back to `*mut u8` when writing to it. All of these
+backends appear to write bytes to the full length of the slice, so it should be
+fully initialized afterwards, upholding the invariants of the new `unsafe` code
+in the public APIs.
+
+- I did not check the behaviour of each implementation's system method to ensure
+  they never write uninitialized bytes; the code prior to this change already
+  needed to uphold that invariant as it was writing into `&mut [u8]`.
+
+The following system implementations have additional `unsafe` code modifications:
+
+- `custom`: The slice is zero-filled to ensure the `MaybeUninit<u8>` doesn't
+  escape into a system implementation that might not write initialized bytes
+  into the entire slice. The internal API between registration and usage is also
+  switched from C ABI to Rust ABI, to guard against potential panics.
+
+- `emscripten`: New backend, implementation looks reasonable.
+
+- `hermit`: New backend, writes incrementally to the slice, but ensures that the
+  entire slice has been written to before returning `Ok(())`. I note that it is
+  possible for the implementation to loop indefinitely if `sys_read_entropy`
+  were to always return 0 for some reason.
+
+- `js`: Adds chunking to limit each write to less than 2^31 (but that seems like
+  a bugfix). The safety requirements for `Uint8Array::view_mut_raw` appear to be
+  satisfied.
+
+- `rdrand`: Code changes to better handle CPU families with broken RDRAND.
+
+- `solaris_illumos`: Now uses `GRND_RANDOM`.
+
+- `windows`: Added `RtlGenRandom` fallback for non-UWP Windows.
 """
 aggregated-from = "https://raw.githubusercontent.com/zcash/zcash/master/qa/supply-chain/audits.toml"
 
@@ -566,6 +695,13 @@ delta = "0.1.0 -> 0.2.0"
 notes = "The ECC core team maintains this crate, and we have reviewed every line."
 aggregated-from = "https://raw.githubusercontent.com/zcash/zcash/master/qa/supply-chain/audits.toml"
 
+[[audits.halo2_gadgets]]
+who = "Jack Grigg <jack@electriccoin.co>"
+criteria = ["safe-to-deploy", "crypto-reviewed"]
+delta = "0.2.0 -> 0.3.0"
+notes = "The ECC core team maintains this crate, and we have reviewed every line."
+aggregated-from = "https://raw.githubusercontent.com/zcash/zcash/master/qa/supply-chain/audits.toml"
+
 [[audits.halo2_legacy_pdqsort]]
 who = "Sean Bowe <ewillbefull@gmail.com>"
 criteria = "safe-to-deploy"
@@ -587,6 +723,16 @@ delta = "0.1.0 -> 0.2.0"
 notes = "The ECC core team maintains this crate, and we have reviewed every line."
 aggregated-from = "https://raw.githubusercontent.com/zcash/zcash/master/qa/supply-chain/audits.toml"
 
+[[audits.halo2_proofs]]
+who = "Jack Grigg <jack@electriccoin.co>"
+criteria = ["safe-to-deploy", "crypto-reviewed"]
+delta = "0.2.0 -> 0.3.0"
+notes = """
+The ECC core team maintains this crate, and we have reviewed every line.
+The crate has `deny(unsafe_code)`.
+"""
+aggregated-from = "https://raw.githubusercontent.com/zcash/zcash/master/qa/supply-chain/audits.toml"
+
 [[audits.http]]
 who = "Jack Grigg <jack@electriccoin.co>"
 criteria = "safe-to-deploy"
@@ -601,6 +747,12 @@ notes = """
 Fixes a bug where memory was reserved based on an adversary-controllable size, before the
 corresponding data was received.
 """
+aggregated-from = "https://raw.githubusercontent.com/zcash/zcash/master/qa/supply-chain/audits.toml"
+
+[[audits.hyper]]
+who = "Jack Grigg <jack@electriccoin.co>"
+criteria = "safe-to-deploy"
+delta = "0.14.25 -> 0.14.26"
 aggregated-from = "https://raw.githubusercontent.com/zcash/zcash/master/qa/supply-chain/audits.toml"
 
 [[audits.incrementalmerkletree]]
@@ -849,6 +1001,13 @@ criteria = "safe-to-deploy"
 delta = "0.2.0 -> 0.3.0"
 aggregated-from = "https://raw.githubusercontent.com/zcash/zcash/master/qa/supply-chain/audits.toml"
 
+[[audits.orchard]]
+who = "Jack Grigg <jack@electriccoin.co>"
+criteria = ["safe-to-deploy", "crypto-reviewed"]
+delta = "0.3.0 -> 0.4.0"
+notes = "The ECC core team maintains this crate, and we have reviewed every line."
+aggregated-from = "https://raw.githubusercontent.com/zcash/zcash/master/qa/supply-chain/audits.toml"
+
 [[audits.pairing]]
 who = "Sean Bowe <ewillbefull@gmail.com>"
 criteria = "safe-to-deploy"
@@ -907,6 +1066,12 @@ aggregated-from = "https://raw.githubusercontent.com/zcash/zcash/master/qa/suppl
 who = "Sean Bowe <ewillbefull@gmail.com>"
 criteria = "safe-to-deploy"
 delta = "0.4.1 -> 0.5.1"
+aggregated-from = "https://raw.githubusercontent.com/zcash/zcash/master/qa/supply-chain/audits.toml"
+
+[[audits.pbkdf2]]
+who = "Jack Grigg <jack@electriccoin.co>"
+criteria = ["safe-to-deploy", "crypto-reviewed"]
+delta = "0.9.0 -> 0.10.1"
 aggregated-from = "https://raw.githubusercontent.com/zcash/zcash/master/qa/supply-chain/audits.toml"
 
 [[audits.phf]]
@@ -981,6 +1146,12 @@ aggregated-from = "https://raw.githubusercontent.com/zcash/zcash/master/qa/suppl
 who = "Jack Grigg <jack@electriccoin.co>"
 criteria = "safe-to-deploy"
 delta = "1.0.51 -> 1.0.52"
+aggregated-from = "https://raw.githubusercontent.com/zcash/zcash/master/qa/supply-chain/audits.toml"
+
+[[audits.proc-macro2]]
+who = "Jack Grigg <jack@electriccoin.co>"
+criteria = "safe-to-deploy"
+delta = "1.0.54 -> 1.0.56"
 aggregated-from = "https://raw.githubusercontent.com/zcash/zcash/master/qa/supply-chain/audits.toml"
 
 [[audits.quanta]]
@@ -1084,6 +1255,12 @@ criteria = "safe-to-deploy"
 delta = "1.0.155 -> 1.0.156"
 aggregated-from = "https://raw.githubusercontent.com/zcash/zcash/master/qa/supply-chain/audits.toml"
 
+[[audits.serde]]
+who = "Jack Grigg <jack@electriccoin.co>"
+criteria = "safe-to-deploy"
+delta = "1.0.159 -> 1.0.160"
+aggregated-from = "https://raw.githubusercontent.com/zcash/zcash/master/qa/supply-chain/audits.toml"
+
 [[audits.serde_derive]]
 who = "Jack Grigg <jack@z.cash>"
 criteria = "safe-to-deploy"
@@ -1103,11 +1280,29 @@ criteria = "safe-to-deploy"
 delta = "1.0.155 -> 1.0.156"
 aggregated-from = "https://raw.githubusercontent.com/zcash/zcash/master/qa/supply-chain/audits.toml"
 
+[[audits.serde_derive]]
+who = "Jack Grigg <jack@electriccoin.co>"
+criteria = "safe-to-deploy"
+delta = "1.0.159 -> 1.0.160"
+aggregated-from = "https://raw.githubusercontent.com/zcash/zcash/master/qa/supply-chain/audits.toml"
+
+[[audits.serde_json]]
+who = "Jack Grigg <jack@electriccoin.co>"
+criteria = "safe-to-deploy"
+delta = "1.0.95 -> 1.0.96"
+aggregated-from = "https://raw.githubusercontent.com/zcash/zcash/master/qa/supply-chain/audits.toml"
+
 [[audits.sketches-ddsketch]]
 who = "Jack Grigg <jack@z.cash>"
 criteria = "safe-to-deploy"
 delta = "0.1.3 -> 0.2.0"
 notes = "I did not review the refactor, but there are no unsafe blocks and I didn't see any obvious changes that could result in panics."
+aggregated-from = "https://raw.githubusercontent.com/zcash/zcash/master/qa/supply-chain/audits.toml"
+
+[[audits.sketches-ddsketch]]
+who = "Jack Grigg <jack@electriccoin.co>"
+criteria = "safe-to-deploy"
+delta = "0.2.0 -> 0.2.1"
 aggregated-from = "https://raw.githubusercontent.com/zcash/zcash/master/qa/supply-chain/audits.toml"
 
 [[audits.syn]]
@@ -1133,6 +1328,18 @@ who = "Jack Grigg <jack@electriccoin.co>"
 criteria = "safe-to-deploy"
 delta = "1.0.107 -> 1.0.109"
 notes = "Fixes string literal parsing to only skip specified whitespace characters."
+aggregated-from = "https://raw.githubusercontent.com/zcash/zcash/master/qa/supply-chain/audits.toml"
+
+[[audits.syn]]
+who = "Jack Grigg <jack@electriccoin.co>"
+criteria = "safe-to-deploy"
+delta = "2.0.11 -> 2.0.13"
+aggregated-from = "https://raw.githubusercontent.com/zcash/zcash/master/qa/supply-chain/audits.toml"
+
+[[audits.syn]]
+who = "Jack Grigg <jack@electriccoin.co>"
+criteria = "safe-to-deploy"
+delta = "2.0.13 -> 2.0.15"
 aggregated-from = "https://raw.githubusercontent.com/zcash/zcash/master/qa/supply-chain/audits.toml"
 
 [[audits.terminfo]]
@@ -1627,4 +1834,10 @@ aggregated-from = "https://raw.githubusercontent.com/zcash/zcash/master/qa/suppl
 who = "Sean Bowe <ewillbefull@gmail.com>"
 criteria = "safe-to-deploy"
 delta = "1.3.3 -> 1.4.1"
+aggregated-from = "https://raw.githubusercontent.com/zcash/zcash/master/qa/supply-chain/audits.toml"
+
+[[audits.zeroize_derive]]
+who = "Jack Grigg <jack@electriccoin.co>"
+criteria = "safe-to-deploy"
+delta = "1.4.1 -> 1.4.2"
 aggregated-from = "https://raw.githubusercontent.com/zcash/zcash/master/qa/supply-chain/audits.toml"
