@@ -118,6 +118,13 @@ delta = "0.7.1 -> 0.8.0"
 notes = "I previously reviewed the crypto-sensitive portions of these changes as well."
 aggregated-from = "https://raw.githubusercontent.com/zcash/zcash/master/qa/supply-chain/audits.toml"
 
+[[audits.bridgetree]]
+who = "Kris Nuttycombe <kris@nutty.land>"
+criteria = "safe-to-deploy"
+version = "0.3.0"
+notes = "The ECC core team maintains this crate, and we have reviewed every line."
+aggregated-from = "https://raw.githubusercontent.com/zcash/zcash/master/qa/supply-chain/audits.toml"
+
 [[audits.bumpalo]]
 who = "Jack Grigg <jack@z.cash>"
 criteria = "safe-to-deploy"
@@ -733,6 +740,12 @@ The crate has `deny(unsafe_code)`.
 """
 aggregated-from = "https://raw.githubusercontent.com/zcash/zcash/master/qa/supply-chain/audits.toml"
 
+[[audits.hdwallet]]
+who = "Jack Grigg <jack@electriccoin.co>"
+criteria = "safe-to-deploy"
+delta = "0.3.1 -> 0.4.1"
+aggregated-from = "https://raw.githubusercontent.com/zcash/zcash/master/qa/supply-chain/audits.toml"
+
 [[audits.http]]
 who = "Jack Grigg <jack@electriccoin.co>"
 criteria = "safe-to-deploy"
@@ -760,6 +773,13 @@ who = "Jack Grigg <jack@electriccoin.co>"
 criteria = "safe-to-deploy"
 delta = "0.3.0 -> 0.3.1"
 notes = "Fixes bug in calculating altitudes from tree positions on 32-bit platforms."
+aggregated-from = "https://raw.githubusercontent.com/zcash/zcash/master/qa/supply-chain/audits.toml"
+
+[[audits.incrementalmerkletree]]
+who = "Kris Nuttycombe <kris@nutty.land>"
+criteria = "safe-to-deploy"
+delta = "0.3.1 -> 0.4.0"
+notes = "Removes `bridgetree` to a separate crate & updates Frontier representation."
 aggregated-from = "https://raw.githubusercontent.com/zcash/zcash/master/qa/supply-chain/audits.toml"
 
 [[audits.indexmap]]
@@ -1008,6 +1028,13 @@ delta = "0.3.0 -> 0.4.0"
 notes = "The ECC core team maintains this crate, and we have reviewed every line."
 aggregated-from = "https://raw.githubusercontent.com/zcash/zcash/master/qa/supply-chain/audits.toml"
 
+[[audits.orchard]]
+who = "Kris Nuttycombe <kris@nutty.land>"
+criteria = ["safe-to-deploy", "crypto-reviewed"]
+delta = "0.4.0 -> 0.5.0"
+notes = "Updated to use incrementalmerkletree version 0.4.0."
+aggregated-from = "https://raw.githubusercontent.com/zcash/zcash/master/qa/supply-chain/audits.toml"
+
 [[audits.pairing]]
 who = "Sean Bowe <ewillbefull@gmail.com>"
 criteria = "safe-to-deploy"
@@ -1166,6 +1193,12 @@ criteria = "safe-to-deploy"
 delta = "1.0.23 -> 1.0.26"
 aggregated-from = "https://raw.githubusercontent.com/zcash/zcash/master/qa/supply-chain/audits.toml"
 
+[[audits.rand_xorshift]]
+who = "Sean Bowe <ewillbefull@gmail.com>"
+criteria = "safe-to-deploy"
+version = "0.3.0"
+aggregated-from = "https://raw.githubusercontent.com/zcash/zcash/master/qa/supply-chain/audits.toml"
+
 [[audits.raw-cpuid]]
 who = "Jack Grigg <jack@z.cash>"
 criteria = "safe-to-deploy"
@@ -1228,6 +1261,12 @@ aggregated-from = "https://raw.githubusercontent.com/zcash/zcash/master/qa/suppl
 who = "Sean Bowe <ewillbefull@gmail.com>"
 criteria = "safe-to-deploy"
 delta = "0.1.21 -> 0.1.22"
+aggregated-from = "https://raw.githubusercontent.com/zcash/zcash/master/qa/supply-chain/audits.toml"
+
+[[audits.rustc-demangle]]
+who = "Jack Grigg <jack@electriccoin.co>"
+criteria = "safe-to-deploy"
+delta = "0.1.22 -> 0.1.23"
 aggregated-from = "https://raw.githubusercontent.com/zcash/zcash/master/qa/supply-chain/audits.toml"
 
 [[audits.ryu]]
@@ -1690,6 +1729,13 @@ delta = "0.2.0 -> 0.2.1"
 notes = "The ECC core team maintains this crate, and we have reviewed every line."
 aggregated-from = "https://raw.githubusercontent.com/zcash/zcash/master/qa/supply-chain/audits.toml"
 
+[[audits.zcash_address]]
+who = "Kris Nuttycombe <kris@nutty.land>"
+criteria = "safe-to-deploy"
+delta = "0.2.1 -> 0.3.0"
+notes = "Updates the bs58 dependency to version 0.5."
+aggregated-from = "https://raw.githubusercontent.com/zcash/zcash/master/qa/supply-chain/audits.toml"
+
 [[audits.zcash_encoding]]
 who = "Jack Grigg <jack@z.cash>"
 criteria = "safe-to-deploy"
@@ -1728,6 +1774,13 @@ who = "Jack Grigg <jack@electriccoin.co>"
 criteria = ["safe-to-deploy", "crypto-reviewed"]
 delta = "0.2.0 -> 0.3.0"
 notes = "The ECC core team maintains this crate, and we have reviewed every line."
+aggregated-from = "https://raw.githubusercontent.com/zcash/zcash/master/qa/supply-chain/audits.toml"
+
+[[audits.zcash_note_encryption]]
+who = "Kris Nuttycombe <kris@nutty.land>"
+criteria = ["safe-to-deploy", "crypto-reviewed"]
+delta = "0.3.0 -> 0.4.0"
+notes = "A minor API change that removes some unused parameters."
 aggregated-from = "https://raw.githubusercontent.com/zcash/zcash/master/qa/supply-chain/audits.toml"
 
 [[audits.zcash_primitives]]
@@ -1791,6 +1844,13 @@ delta = "0.10.2 -> 0.11.0"
 notes = "The ECC core team maintains this crate, and we have reviewed every line."
 aggregated-from = "https://raw.githubusercontent.com/zcash/zcash/master/qa/supply-chain/audits.toml"
 
+[[audits.zcash_primitives]]
+who = "Kris Nuttycombe <kris@nutty.land>"
+criteria = ["safe-to-deploy", "crypto-reviewed"]
+delta = "0.11.0 -> 0.12.0"
+notes = "The ECC core team maintains this crate, and we have reviewed every line."
+aggregated-from = "https://raw.githubusercontent.com/zcash/zcash/master/qa/supply-chain/audits.toml"
+
 [[audits.zcash_proofs]]
 who = "Jack Grigg <jack@z.cash>"
 criteria = ["crypto-reviewed", "safe-to-deploy"]
@@ -1836,6 +1896,13 @@ who = "Jack Grigg <jack@electriccoin.co>"
 criteria = ["safe-to-deploy", "crypto-reviewed"]
 delta = "0.10.0 -> 0.11.0"
 notes = "The ECC core team maintains this crate, and we have reviewed every line."
+aggregated-from = "https://raw.githubusercontent.com/zcash/zcash/master/qa/supply-chain/audits.toml"
+
+[[audits.zcash_proofs]]
+who = "Kris Nuttycombe <kris@nutty.land>"
+criteria = ["safe-to-deploy", "crypto-reviewed"]
+delta = "0.11.0 -> 0.12.0"
+notes = "The only change is that the zcash_primitives dependency has been updated to version 0.12."
 aggregated-from = "https://raw.githubusercontent.com/zcash/zcash/master/qa/supply-chain/audits.toml"
 
 [[audits.zeroize]]
