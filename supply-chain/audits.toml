@@ -1832,6 +1832,48 @@ delta = "0.4.1 -> 0.5.0"
 notes = "I checked correctness of to_blocks which uses unsafe code in a safe function."
 aggregated-from = "https://raw.githubusercontent.com/zcash/zcash/master/qa/supply-chain/audits.toml"
 
+[[audits.wagyu-zcash-parameters]]
+who = "Sean Bowe <ewillbefull@gmail.com>"
+criteria = ["safe-to-deploy", "crypto-reviewed"]
+version = "0.2.0"
+aggregated-from = "https://raw.githubusercontent.com/zcash/zcash/master/qa/supply-chain/audits.toml"
+
+[[audits.wagyu-zcash-parameters-1]]
+who = "Sean Bowe <ewillbefull@gmail.com>"
+criteria = ["safe-to-deploy", "crypto-reviewed"]
+version = "0.2.0"
+aggregated-from = "https://raw.githubusercontent.com/zcash/zcash/master/qa/supply-chain/audits.toml"
+
+[[audits.wagyu-zcash-parameters-2]]
+who = "Sean Bowe <ewillbefull@gmail.com>"
+criteria = ["safe-to-deploy", "crypto-reviewed"]
+version = "0.2.0"
+aggregated-from = "https://raw.githubusercontent.com/zcash/zcash/master/qa/supply-chain/audits.toml"
+
+[[audits.wagyu-zcash-parameters-3]]
+who = "Sean Bowe <ewillbefull@gmail.com>"
+criteria = ["safe-to-deploy", "crypto-reviewed"]
+version = "0.2.0"
+aggregated-from = "https://raw.githubusercontent.com/zcash/zcash/master/qa/supply-chain/audits.toml"
+
+[[audits.wagyu-zcash-parameters-4]]
+who = "Sean Bowe <ewillbefull@gmail.com>"
+criteria = ["safe-to-deploy", "crypto-reviewed"]
+version = "0.2.0"
+aggregated-from = "https://raw.githubusercontent.com/zcash/zcash/master/qa/supply-chain/audits.toml"
+
+[[audits.wagyu-zcash-parameters-5]]
+who = "Sean Bowe <ewillbefull@gmail.com>"
+criteria = ["safe-to-deploy", "crypto-reviewed"]
+version = "0.2.0"
+aggregated-from = "https://raw.githubusercontent.com/zcash/zcash/master/qa/supply-chain/audits.toml"
+
+[[audits.wagyu-zcash-parameters-6]]
+who = "Sean Bowe <ewillbefull@gmail.com>"
+criteria = ["safe-to-deploy", "crypto-reviewed"]
+version = "0.2.0"
+aggregated-from = "https://raw.githubusercontent.com/zcash/zcash/master/qa/supply-chain/audits.toml"
+
 [[audits.want]]
 who = "Jack Grigg <jack@electriccoin.co>"
 criteria = "safe-to-deploy"
