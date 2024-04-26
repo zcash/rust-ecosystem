@@ -1,1 +1,2 @@
+https://raw.githubusercontent.com/zcash/librustzcash/main/supply-chain/audits.toml
 https://raw.githubusercontent.com/zcash/zcash/master/qa/supply-chain/audits.toml
