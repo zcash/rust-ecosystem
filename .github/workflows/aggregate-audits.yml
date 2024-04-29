@@ -22,22 +22,15 @@ jobs:
         with:
           ref: ${{ github.head_ref }}
 
-      - uses: actions-rs/toolchain@v1
-        with:
-          toolchain: stable
-          override: true
+      - uses: dtolnay/rust-toolchain@stable
+        id: toolchain
+      - run: rustup override set ${{steps.toolchain.outputs.name}}
 
       - name: Install cargo-vet
-        uses: actions-rs/cargo@v1
-        with:
-          command: install
-          args: --git https://github.com/mozilla/cargo-vet.git cargo-vet
+        run: cargo install --git https://github.com/mozilla/cargo-vet.git cargo-vet
 
       - name: Aggregate audits
-        uses: actions-rs/cargo@v1
-        with:
-          command: vet
-          args: aggregate --output-file supply-chain/audits.toml supply-chain/sources.txt
+        run: cargo vet aggregate --output-file supply-chain/audits.toml supply-chain/sources.txt
 
       - name: Commit and push aggregated audits
         uses: stefanzweifel/git-auto-commit-action@v5
