@@ -78,6 +78,12 @@ delta = "0.2.16 -> 0.2.18"
 aggregated-from = "https://raw.githubusercontent.com/zcash/zcash/master/qa/supply-chain/audits.toml"
 
 [[audits.anyhow]]
+who = "Daira-Emma Hopwood <daira@jacaranda.org>"
+criteria = "safe-to-deploy"
+delta = "1.0.82 -> 1.0.83"
+aggregated-from = "https://raw.githubusercontent.com/zcash/librustzcash/main/supply-chain/audits.toml"
+
+[[audits.anyhow]]
 who = "Jack Grigg <jack@z.cash>"
 criteria = "safe-to-deploy"
 delta = "1.0.56 -> 1.0.61"
@@ -148,6 +154,18 @@ who = "Sean Bowe <ewillbefull@gmail.com>"
 criteria = "safe-to-deploy"
 delta = "0.3.6 -> 0.3.7"
 aggregated-from = "https://raw.githubusercontent.com/zcash/zcash/master/qa/supply-chain/audits.toml"
+
+[[audits.async-trait]]
+who = "Daira-Emma Hopwood <daira@jacaranda.org>"
+criteria = "safe-to-deploy"
+delta = "0.1.78 -> 0.1.80"
+aggregated-from = "https://raw.githubusercontent.com/zcash/librustzcash/main/supply-chain/audits.toml"
+
+[[audits.autocfg]]
+who = "Daira-Emma Hopwood <daira@jacaranda.org>"
+criteria = "safe-to-deploy"
+delta = "1.2.0 -> 1.3.0"
+aggregated-from = "https://raw.githubusercontent.com/zcash/librustzcash/main/supply-chain/audits.toml"
 
 [[audits.backtrace]]
 who = "Jack Grigg <jack@electriccoin.co>"
@@ -296,6 +314,12 @@ criteria = "safe-to-deploy"
 delta = "1.2.1 -> 1.2.2"
 aggregated-from = "https://raw.githubusercontent.com/zcash/zcash/master/qa/supply-chain/audits.toml"
 
+[[audits.bytemuck]]
+who = "Daira-Emma Hopwood <daira@jacaranda.org>"
+criteria = "safe-to-run"
+delta = "1.15.0 -> 1.16.0"
+aggregated-from = "https://raw.githubusercontent.com/zcash/librustzcash/main/supply-chain/audits.toml"
+
 [[audits.byteorder]]
 who = "Jack Grigg <jack@electriccoin.co>"
 criteria = "safe-to-deploy"
@@ -343,6 +367,12 @@ aggregated-from = "https://raw.githubusercontent.com/zcash/zcash/master/qa/suppl
 [[audits.cc]]
 who = "Daira-Emma Hopwood <daira@jacaranda.org>"
 criteria = "safe-to-deploy"
+delta = "1.0.94 -> 1.0.97"
+aggregated-from = "https://raw.githubusercontent.com/zcash/librustzcash/main/supply-chain/audits.toml"
+
+[[audits.cc]]
+who = "Daira-Emma Hopwood <daira@jacaranda.org>"
+criteria = "safe-to-deploy"
 delta = "1.0.83 -> 1.0.94"
 notes = """
 The optimization to use `buffer.set_len(buffer.capacity())` in `command_helpers::StderrForwarder::forward_available`
@@ -384,6 +414,24 @@ criteria = "safe-to-deploy"
 delta = "0.9.1 -> 0.10.1"
 notes = "This mainly adapts to API changes between aead 0.4 and aead 0.5."
 aggregated-from = "https://raw.githubusercontent.com/zcash/zcash/master/qa/supply-chain/audits.toml"
+
+[[audits.ciborium]]
+who = "Daira-Emma Hopwood <daira@jacaranda.org>"
+criteria = "safe-to-run"
+delta = "0.2.1 -> 0.2.2"
+aggregated-from = "https://raw.githubusercontent.com/zcash/librustzcash/main/supply-chain/audits.toml"
+
+[[audits.ciborium-io]]
+who = "Daira-Emma Hopwood <daira@jacaranda.org>"
+criteria = "safe-to-run"
+delta = "0.2.1 -> 0.2.2"
+aggregated-from = "https://raw.githubusercontent.com/zcash/librustzcash/main/supply-chain/audits.toml"
+
+[[audits.ciborium-ll]]
+who = "Daira-Emma Hopwood <daira@jacaranda.org>"
+criteria = "safe-to-run"
+delta = "0.2.1 -> 0.2.2"
+aggregated-from = "https://raw.githubusercontent.com/zcash/librustzcash/main/supply-chain/audits.toml"
 
 [[audits.cipher]]
 who = "Daira Hopwood <daira@jacaranda.org>"
@@ -1018,6 +1066,12 @@ delta = "1.0.0 -> 1.0.1"
 aggregated-from = "https://raw.githubusercontent.com/zcash/zcash/master/qa/supply-chain/audits.toml"
 
 [[audits.errno]]
+who = "Daira-Emma Hopwood <daira@jacaranda.org>"
+criteria = "safe-to-deploy"
+delta = "0.3.8 -> 0.3.9"
+aggregated-from = "https://raw.githubusercontent.com/zcash/librustzcash/main/supply-chain/audits.toml"
+
+[[audits.errno]]
 who = "Jack Grigg <jack@electriccoin.co>"
 criteria = "safe-to-deploy"
 delta = "0.3.1 -> 0.3.3"
@@ -1028,6 +1082,21 @@ who = "Jack Grigg <jack@electriccoin.co>"
 criteria = "safe-to-deploy"
 delta = "0.3.3 -> 0.3.8"
 aggregated-from = "https://raw.githubusercontent.com/zcash/zcash/master/qa/supply-chain/audits.toml"
+
+[[audits.fastrand]]
+who = "Daira-Emma Hopwood <daira@jacaranda.org>"
+criteria = "safe-to-deploy"
+delta = "2.0.2 -> 2.1.0"
+notes = """
+As noted in the changelog, this version produces different output for a given seed.
+The documentation did not mention stability. It is possible that some uses relying on
+determinism across the update would be broken.
+
+The new constants do appear to match WyRand v4.2 (modulo ordering issues that I have not checked):
+https://github.com/wangyi-fudan/wyhash/blob/408620b6d12b7d667b3dd6ae39b7929a39e8fa05/wyhash.h#L145
+I have no way to check whether these constants are an improvement or not.
+"""
+aggregated-from = "https://raw.githubusercontent.com/zcash/librustzcash/main/supply-chain/audits.toml"
 
 [[audits.fastrand]]
 who = "Jack Grigg <jack@electriccoin.co>"
@@ -1137,6 +1206,18 @@ criteria = "safe-to-deploy"
 delta = "0.3.29 -> 0.3.30"
 notes = "Removes `build.rs` now that it can rely on the `target_has_atomic` attribute."
 aggregated-from = "https://raw.githubusercontent.com/zcash/zcash/master/qa/supply-chain/audits.toml"
+
+[[audits.futures-macro]]
+who = "Daira-Emma Hopwood <daira@jacaranda.org>"
+criteria = "safe-to-deploy"
+delta = "0.3.29 -> 0.3.30"
+aggregated-from = "https://raw.githubusercontent.com/zcash/librustzcash/main/supply-chain/audits.toml"
+
+[[audits.futures-sink]]
+who = "Daira-Emma Hopwood <daira@jacaranda.org>"
+criteria = "safe-to-deploy"
+delta = "0.3.29 -> 0.3.30"
+aggregated-from = "https://raw.githubusercontent.com/zcash/librustzcash/main/supply-chain/audits.toml"
 
 [[audits.futures-task]]
 who = "Jack Grigg <jack@z.cash>"
@@ -1309,6 +1390,29 @@ criteria = "safe-to-deploy"
 delta = "0.12.1 -> 0.13.0"
 aggregated-from = "https://raw.githubusercontent.com/zcash/zcash/master/qa/supply-chain/audits.toml"
 
+[[audits.h2]]
+who = "Daira-Emma Hopwood <daira@jacaranda.org>"
+criteria = "safe-to-deploy"
+delta = "0.3.21 -> 0.3.26"
+aggregated-from = "https://raw.githubusercontent.com/zcash/librustzcash/main/supply-chain/audits.toml"
+
+[[audits.half]]
+who = "Daira-Emma Hopwood <daira@jacaranda.org>"
+criteria = "safe-to-run"
+delta = "1.8.2 -> 2.2.1"
+notes = """
+All new uses of unsafe are either just accessing bit representations, or plausibly reasonable uses of intrinsics. I have not checked safety
+requirements on the latter.
+"""
+aggregated-from = "https://raw.githubusercontent.com/zcash/librustzcash/main/supply-chain/audits.toml"
+
+[[audits.hashbrown]]
+who = "Daira-Emma Hopwood <daira@jacaranda.org>"
+criteria = "safe-to-deploy"
+delta = "0.14.2 -> 0.14.5"
+notes = "I did not thoroughly check the safety argument for fold_impl, but it at least seems to be well documented."
+aggregated-from = "https://raw.githubusercontent.com/zcash/librustzcash/main/supply-chain/audits.toml"
+
 [[audits.hashbrown]]
 who = "Daira Emma Hopwood <daira@jacaranda.org>"
 criteria = "safe-to-deploy"
@@ -1410,6 +1514,12 @@ delta = "2.0.0 -> 2.1.0"
 notes = "- Replaces an `unsafe` block with a safe alternative."
 aggregated-from = "https://raw.githubusercontent.com/zcash/zcash/master/qa/supply-chain/audits.toml"
 
+[[audits.inferno]]
+who = "Daira-Emma Hopwood <daira@jacaranda.org>"
+criteria = "safe-to-run"
+delta = "0.11.17 -> 0.11.19"
+aggregated-from = "https://raw.githubusercontent.com/zcash/librustzcash/main/supply-chain/audits.toml"
+
 [[audits.inout]]
 who = "Daira Hopwood <daira@jacaranda.org>"
 criteria = "safe-to-deploy"
@@ -1447,6 +1557,12 @@ criteria = "safe-to-deploy"
 delta = "2.8.0 -> 2.9.0"
 aggregated-from = "https://raw.githubusercontent.com/zcash/zcash/master/qa/supply-chain/audits.toml"
 
+[[audits.is-terminal]]
+who = "Daira-Emma Hopwood <daira@jacaranda.org>"
+criteria = "safe-to-run"
+delta = "0.4.9 -> 0.4.12"
+aggregated-from = "https://raw.githubusercontent.com/zcash/librustzcash/main/supply-chain/audits.toml"
+
 [[audits.itoa]]
 who = "Jack Grigg <jack@z.cash>"
 criteria = "safe-to-deploy"
@@ -1471,6 +1587,12 @@ who = "Jack Grigg <jack@electriccoin.co>"
 criteria = "safe-to-deploy"
 delta = "1.0.9 -> 1.0.10"
 aggregated-from = "https://raw.githubusercontent.com/zcash/zcash/master/qa/supply-chain/audits.toml"
+
+[[audits.js-sys]]
+who = "Daira-Emma Hopwood <daira@jacaranda.org>"
+criteria = "safe-to-deploy"
+delta = "0.3.65 -> 0.3.66"
+aggregated-from = "https://raw.githubusercontent.com/zcash/librustzcash/main/supply-chain/audits.toml"
 
 [[audits.js-sys]]
 who = "Jack Grigg <jack@z.cash>"
@@ -1587,6 +1709,12 @@ criteria = "safe-to-deploy"
 delta = "0.4.12 -> 0.4.13"
 notes = "Low-level OS interface crate, so `unsafe` code is expected."
 aggregated-from = "https://raw.githubusercontent.com/zcash/zcash/master/qa/supply-chain/audits.toml"
+
+[[audits.lock_api]]
+who = "Daira-Emma Hopwood <daira@jacaranda.org>"
+criteria = "safe-to-run"
+delta = "0.4.11 -> 0.4.12"
+aggregated-from = "https://raw.githubusercontent.com/zcash/librustzcash/main/supply-chain/audits.toml"
 
 [[audits.lock_api]]
 who = "Jack Grigg <jack@z.cash>"
@@ -1722,6 +1850,12 @@ criteria = "safe-to-deploy"
 delta = "0.7.1 -> 0.7.2"
 aggregated-from = "https://raw.githubusercontent.com/zcash/zcash/master/qa/supply-chain/audits.toml"
 
+[[audits.minreq]]
+who = "Daira-Emma Hopwood <daira@jacaranda.org>"
+criteria = "safe-to-deploy"
+delta = "2.11.0 -> 2.11.2"
+aggregated-from = "https://raw.githubusercontent.com/zcash/librustzcash/main/supply-chain/audits.toml"
+
 [[audits.mio]]
 who = "Jack Grigg <jack@z.cash>"
 criteria = "safe-to-deploy"
@@ -1793,6 +1927,13 @@ Most of the `unsafe` changes are cleaning up their usage:
 A new unsafe trait method `SockaddrLike::set_length` is added; it's impls look fine.
 """
 aggregated-from = "https://raw.githubusercontent.com/zcash/zcash/master/qa/supply-chain/audits.toml"
+
+[[audits.num-bigint]]
+who = "Daira-Emma Hopwood <daira@jacaranda.org>"
+criteria = "safe-to-deploy"
+delta = "0.4.4 -> 0.4.5"
+notes = "New uses of unsafe look reasonable."
+aggregated-from = "https://raw.githubusercontent.com/zcash/librustzcash/main/supply-chain/audits.toml"
 
 [[audits.num-conv]]
 who = "Daira-Emma Hopwood <daira@jacaranda.org>"
@@ -1914,11 +2055,23 @@ delta = "3.6.5 -> 3.6.9"
 aggregated-from = "https://raw.githubusercontent.com/zcash/zcash/master/qa/supply-chain/audits.toml"
 
 [[audits.parking_lot]]
+who = "Daira-Emma Hopwood <daira@jacaranda.org>"
+criteria = "safe-to-run"
+delta = "0.12.1 -> 0.12.2"
+aggregated-from = "https://raw.githubusercontent.com/zcash/librustzcash/main/supply-chain/audits.toml"
+
+[[audits.parking_lot]]
 who = "Jack Grigg <jack@z.cash>"
 criteria = "safe-to-deploy"
 delta = "0.11.2 -> 0.12.1"
 notes = "Most `unsafe {}` changes were to reduce the scope of the unsafe blocks. I didn't closely review the migration to the asm! macro but it looks reasonable."
 aggregated-from = "https://raw.githubusercontent.com/zcash/zcash/master/qa/supply-chain/audits.toml"
+
+[[audits.parking_lot_core]]
+who = "Daira-Emma Hopwood <daira@jacaranda.org>"
+criteria = "safe-to-run"
+delta = "0.9.9 -> 0.9.10"
+aggregated-from = "https://raw.githubusercontent.com/zcash/librustzcash/main/supply-chain/audits.toml"
 
 [[audits.parking_lot_core]]
 who = "Jack Grigg <jack@z.cash>"
@@ -2015,6 +2168,12 @@ criteria = "safe-to-deploy"
 delta = "0.11.1 -> 0.11.2"
 aggregated-from = "https://raw.githubusercontent.com/zcash/zcash/master/qa/supply-chain/audits.toml"
 
+[[audits.pin-project-internal]]
+who = "Daira-Emma Hopwood <daira@jacaranda.org>"
+criteria = "safe-to-deploy"
+delta = "1.1.3 -> 1.1.5"
+aggregated-from = "https://raw.githubusercontent.com/zcash/librustzcash/main/supply-chain/audits.toml"
+
 [[audits.pin-project-lite]]
 who = "Jack Grigg <jack@electriccoin.co>"
 criteria = "safe-to-deploy"
@@ -2026,6 +2185,12 @@ who = "Daira-Emma Hopwood <daira@jacaranda.org>"
 criteria = "safe-to-deploy"
 delta = "0.2.13 -> 0.2.14"
 aggregated-from = "https://raw.githubusercontent.com/zcash/zcash/master/qa/supply-chain/audits.toml"
+
+[[audits.pkg-config]]
+who = "Daira-Emma Hopwood <daira@jacaranda.org>"
+criteria = "safe-to-deploy"
+delta = "0.3.29 -> 0.3.30"
+aggregated-from = "https://raw.githubusercontent.com/zcash/librustzcash/main/supply-chain/audits.toml"
 
 [[audits.platforms]]
 who = "Daira Emma Hopwood <daira@jacaranda.org>"
@@ -2069,6 +2234,12 @@ delta = "0.7.2 -> 0.8.0"
 notes = "Changes to unsafe (avx2) code look reasonable."
 aggregated-from = "https://raw.githubusercontent.com/zcash/zcash/master/qa/supply-chain/audits.toml"
 
+[[audits.prettyplease]]
+who = "Daira-Emma Hopwood <daira@jacaranda.org>"
+criteria = "safe-to-deploy"
+delta = "0.2.15 -> 0.2.20"
+aggregated-from = "https://raw.githubusercontent.com/zcash/librustzcash/main/supply-chain/audits.toml"
+
 [[audits.proc-macro-crate]]
 who = "Jack Grigg <jack@z.cash>"
 criteria = "safe-to-deploy"
@@ -2096,6 +2267,12 @@ the most that the environment can do (side effects aside) is return the path to
 a different `Cargo.toml`.
 """
 aggregated-from = "https://raw.githubusercontent.com/zcash/zcash/master/qa/supply-chain/audits.toml"
+
+[[audits.proc-macro2]]
+who = "Daira-Emma Hopwood <daira@jacaranda.org>"
+criteria = "safe-to-deploy"
+delta = "1.0.81 -> 1.0.82"
+aggregated-from = "https://raw.githubusercontent.com/zcash/librustzcash/main/supply-chain/audits.toml"
 
 [[audits.proc-macro2]]
 who = "Daira Hopwood <daira@jacaranda.org>"
@@ -2162,6 +2339,12 @@ relies on the `RUSTC` environment variable for inspecting the compiler version).
 aggregated-from = "https://raw.githubusercontent.com/zcash/zcash/master/qa/supply-chain/audits.toml"
 
 [[audits.proptest]]
+who = "Daira-Emma Hopwood <daira@jacaranda.org>"
+criteria = "safe-to-deploy"
+delta = "1.3.1 -> 1.4.0"
+aggregated-from = "https://raw.githubusercontent.com/zcash/librustzcash/main/supply-chain/audits.toml"
+
+[[audits.proptest]]
 who = "Jack Grigg <jack@electriccoin.co>"
 criteria = "safe-to-deploy"
 delta = "1.2.0 -> 1.4.0"
@@ -2171,6 +2354,30 @@ for fuzzing in test environments this is within its expected scope (and the new
 API would be used intentionally by downstream tests).
 """
 aggregated-from = "https://raw.githubusercontent.com/zcash/zcash/master/qa/supply-chain/audits.toml"
+
+[[audits.prost]]
+who = "Daira-Emma Hopwood <daira@jacaranda.org>"
+criteria = "safe-to-deploy"
+delta = "0.12.1 -> 0.12.3"
+aggregated-from = "https://raw.githubusercontent.com/zcash/librustzcash/main/supply-chain/audits.toml"
+
+[[audits.prost-build]]
+who = "Daira-Emma Hopwood <daira@jacaranda.org>"
+criteria = "safe-to-deploy"
+delta = "0.12.1 -> 0.12.3"
+aggregated-from = "https://raw.githubusercontent.com/zcash/librustzcash/main/supply-chain/audits.toml"
+
+[[audits.prost-derive]]
+who = "Daira-Emma Hopwood <daira@jacaranda.org>"
+criteria = "safe-to-deploy"
+delta = "0.12.1 -> 0.12.3"
+aggregated-from = "https://raw.githubusercontent.com/zcash/librustzcash/main/supply-chain/audits.toml"
+
+[[audits.prost-types]]
+who = "Daira-Emma Hopwood <daira@jacaranda.org>"
+criteria = "safe-to-deploy"
+delta = "0.12.1 -> 0.12.3"
+aggregated-from = "https://raw.githubusercontent.com/zcash/librustzcash/main/supply-chain/audits.toml"
 
 [[audits.quanta]]
 who = "Jack Grigg <jack@z.cash>"
@@ -2247,6 +2454,13 @@ which has had previous cryptographic review by NCC group; see finding NCC-Zcash2
 https://research.nccgroup.com/wp-content/uploads/2020/07/NCC_Group_Zcash2018_Public_Report_2019-01-30_v1.3.pdf ).
 """
 aggregated-from = "https://raw.githubusercontent.com/zcash/zcash/master/qa/supply-chain/audits.toml"
+
+[[audits.redox_syscall]]
+who = "Daira-Emma Hopwood <daira@jacaranda.org>"
+criteria = "safe-to-run"
+delta = "0.4.1 -> 0.5.1"
+notes = "Uses of unsafe look plausible."
+aggregated-from = "https://raw.githubusercontent.com/zcash/librustzcash/main/supply-chain/audits.toml"
 
 [[audits.redox_users]]
 who = "Jack Grigg <jack@electriccoin.co>"
@@ -2326,6 +2540,12 @@ delta = "0.8.2 -> 0.8.3"
 aggregated-from = "https://raw.githubusercontent.com/zcash/zcash/master/qa/supply-chain/audits.toml"
 
 [[audits.rustc-demangle]]
+who = "Daira-Emma Hopwood <daira@jacaranda.org>"
+criteria = "safe-to-deploy"
+delta = "0.1.23 -> 0.1.24"
+aggregated-from = "https://raw.githubusercontent.com/zcash/librustzcash/main/supply-chain/audits.toml"
+
+[[audits.rustc-demangle]]
 who = "Sean Bowe <ewillbefull@gmail.com>"
 criteria = "safe-to-deploy"
 delta = "0.1.21 -> 0.1.22"
@@ -2358,6 +2578,66 @@ criteria = "safe-to-deploy"
 delta = "0.38.28 -> 0.38.32"
 notes = "Cursory review."
 aggregated-from = "https://raw.githubusercontent.com/zcash/zcash/master/qa/supply-chain/audits.toml"
+
+[[audits.rustls]]
+who = "Daira-Emma Hopwood <daira@jacaranda.org>"
+criteria = "safe-to-deploy"
+delta = "0.21.8 -> 0.21.12"
+notes = """
+A comment in get_sni_extension asks whether the behaviour of parsing an IPv4 or IPv6 address
+in a host_name field of a server_name extension, but then ignoring the extension (because
+'Literal IPv4 and IPv6 addresses are not permitted in \"HostName\"'), as the server, is
+compliant with RFC 6066. As an original author of RFC 3546 which has very similar wording,
+I can speak to the intent: yes this is fine. The client is clearly nonconformant in this
+case, but the server isn't.
+
+RFC 3546 said \"If the server understood the client hello extension but does not recognize
+the server name, it SHOULD send an \"unrecognized_name\" alert (which MAY be fatal).\"
+This wording was preserved in RFC 5746, and then updated in RFC 6066 to:
+
+   If the server understood the ClientHello extension but
+   does not recognize the server name, the server SHOULD take one of two
+   actions: either abort the handshake by sending a fatal-level
+   unrecognized_name(112) alert or continue the handshake.  It is NOT
+   RECOMMENDED to send a warning-level unrecognized_name(112) alert,
+   because the client's behavior in response to warning-level alerts is
+   unpredictable.  If there is a mismatch between the server name used
+   by the client application and the server name of the credential
+   chosen by the server, this mismatch will become apparent when the
+   client application performs the server endpoint identification, at
+   which point the client application will have to decide whether to
+   proceed with the communication.
+
+To me it's clear that it is reasonable to consider an IP address as a name that the
+server does not recognize. And so the server SHOULD *either* send a fatal unrecognized_name
+alert, *or* continue the handshake and let the client application decide when it \"performs
+the server endpoint identification\". There's no conformance requirement for the server to
+take any notice of a host_name that is \"not permitted\". (It would have been clearer to
+express this by specifying the allowed client and server behaviour separately, i.e. saying
+that the client MUST NOT send an IP address in host_name, and then explicitly specifying
+the server behaviour if it does so anyway. That's how I would write it now. But honestly
+this extension was one of the most bikeshedded parts of RFC 3546, to a much greater extent
+than I'd anticipated, and I was tired.)
+"""
+aggregated-from = "https://raw.githubusercontent.com/zcash/librustzcash/main/supply-chain/audits.toml"
+
+[[audits.rustversion]]
+who = "Daira-Emma Hopwood <daira@jacaranda.org>"
+criteria = "safe-to-deploy"
+delta = "1.0.15 -> 1.0.16"
+aggregated-from = "https://raw.githubusercontent.com/zcash/librustzcash/main/supply-chain/audits.toml"
+
+[[audits.rustversion]]
+who = "Daira-Emma Hopwood <daira@jacaranda.org>"
+criteria = "safe-to-deploy"
+delta = "1.0.16 -> 1.0.17"
+aggregated-from = "https://raw.githubusercontent.com/zcash/librustzcash/main/supply-chain/audits.toml"
+
+[[audits.ryu]]
+who = "Daira-Emma Hopwood <daira@jacaranda.org>"
+criteria = "safe-to-run"
+delta = "1.0.17 -> 1.0.18"
+aggregated-from = "https://raw.githubusercontent.com/zcash/librustzcash/main/supply-chain/audits.toml"
 
 [[audits.ryu]]
 who = "Jack Grigg <jack@electriccoin.co>"
@@ -2415,6 +2695,12 @@ delta = "1.0.20 -> 1.0.22"
 aggregated-from = "https://raw.githubusercontent.com/zcash/zcash/master/qa/supply-chain/audits.toml"
 
 [[audits.serde]]
+who = "Daira-Emma Hopwood <daira@jacaranda.org>"
+criteria = "safe-to-deploy"
+delta = "1.0.201 -> 1.0.202"
+aggregated-from = "https://raw.githubusercontent.com/zcash/librustzcash/main/supply-chain/audits.toml"
+
+[[audits.serde]]
 who = "Jack Grigg <jack@z.cash>"
 criteria = "safe-to-deploy"
 delta = "1.0.136 -> 1.0.143"
@@ -2465,6 +2751,12 @@ delta = "1.0.193 -> 1.0.194"
 aggregated-from = "https://raw.githubusercontent.com/zcash/zcash/master/qa/supply-chain/audits.toml"
 
 [[audits.serde_derive]]
+who = "Daira-Emma Hopwood <daira@jacaranda.org>"
+criteria = "safe-to-deploy"
+delta = "1.0.201 -> 1.0.202"
+aggregated-from = "https://raw.githubusercontent.com/zcash/librustzcash/main/supply-chain/audits.toml"
+
+[[audits.serde_derive]]
 who = "Jack Grigg <jack@z.cash>"
 criteria = "safe-to-deploy"
 delta = "1.0.136 -> 1.0.143"
@@ -2512,6 +2804,12 @@ who = "Jack Grigg <jack@electriccoin.co>"
 criteria = "safe-to-deploy"
 delta = "1.0.193 -> 1.0.194"
 aggregated-from = "https://raw.githubusercontent.com/zcash/zcash/master/qa/supply-chain/audits.toml"
+
+[[audits.serde_json]]
+who = "Daira-Emma Hopwood <daira@jacaranda.org>"
+criteria = "safe-to-run"
+delta = "1.0.116 -> 1.0.117"
+aggregated-from = "https://raw.githubusercontent.com/zcash/librustzcash/main/supply-chain/audits.toml"
 
 [[audits.serde_json]]
 who = "Jack Grigg <jack@electriccoin.co>"
@@ -2621,6 +2919,19 @@ criteria = "safe-to-deploy"
 delta = "0.2.1 -> 0.2.2"
 aggregated-from = "https://raw.githubusercontent.com/zcash/zcash/master/qa/supply-chain/audits.toml"
 
+[[audits.smallvec]]
+who = "Daira-Emma Hopwood <daira@jacaranda.org>"
+criteria = "safe-to-deploy"
+delta = "1.11.1 -> 1.13.2"
+aggregated-from = "https://raw.githubusercontent.com/zcash/librustzcash/main/supply-chain/audits.toml"
+
+[[audits.socket2]]
+who = "Daira-Emma Hopwood <daira@jacaranda.org>"
+criteria = "safe-to-deploy"
+delta = "0.5.6 -> 0.5.7"
+notes = "The new uses of unsafe to access getsockopt/setsockopt look reasonable."
+aggregated-from = "https://raw.githubusercontent.com/zcash/librustzcash/main/supply-chain/audits.toml"
+
 [[audits.socket2]]
 who = "Jack Grigg <jack@electriccoin.co>"
 criteria = "safe-to-deploy"
@@ -2646,6 +2957,12 @@ who = "Daira-Emma Hopwood <daira@jacaranda.org>"
 criteria = "safe-to-deploy"
 delta = "0.5.5 -> 0.5.6"
 aggregated-from = "https://raw.githubusercontent.com/zcash/zcash/master/qa/supply-chain/audits.toml"
+
+[[audits.syn]]
+who = "Daira-Emma Hopwood <daira@jacaranda.org>"
+criteria = "safe-to-deploy"
+delta = "2.0.60 -> 2.0.63"
+aggregated-from = "https://raw.githubusercontent.com/zcash/librustzcash/main/supply-chain/audits.toml"
 
 [[audits.syn]]
 who = "Daira Hopwood <daira@jacaranda.org>"
@@ -2770,6 +3087,12 @@ notes = "Just dependency and edition updates."
 aggregated-from = "https://raw.githubusercontent.com/zcash/zcash/master/qa/supply-chain/audits.toml"
 
 [[audits.thiserror]]
+who = "Daira-Emma Hopwood <daira@jacaranda.org>"
+criteria = "safe-to-deploy"
+delta = "1.0.58 -> 1.0.60"
+aggregated-from = "https://raw.githubusercontent.com/zcash/librustzcash/main/supply-chain/audits.toml"
+
+[[audits.thiserror]]
 who = "Jack Grigg <jack@z.cash>"
 criteria = "safe-to-deploy"
 delta = "1.0.30 -> 1.0.32"
@@ -2818,6 +3141,12 @@ who = "Daira-Emma Hopwood <daira@jacaranda.org>"
 criteria = "safe-to-deploy"
 delta = "1.0.56 -> 1.0.58"
 aggregated-from = "https://raw.githubusercontent.com/zcash/zcash/master/qa/supply-chain/audits.toml"
+
+[[audits.thiserror-impl]]
+who = "Daira-Emma Hopwood <daira@jacaranda.org>"
+criteria = "safe-to-deploy"
+delta = "1.0.58 -> 1.0.60"
+aggregated-from = "https://raw.githubusercontent.com/zcash/librustzcash/main/supply-chain/audits.toml"
 
 [[audits.thiserror-impl]]
 who = "Jack Grigg <jack@z.cash>"
@@ -3000,6 +3329,18 @@ delta = "1.35.1 -> 1.37.0"
 notes = "Cursory review, but new and changed uses of `unsafe` code look fine, as far as I can see."
 aggregated-from = "https://raw.githubusercontent.com/zcash/zcash/master/qa/supply-chain/audits.toml"
 
+[[audits.tokio-stream]]
+who = "Daira-Emma Hopwood <daira@jacaranda.org>"
+criteria = "safe-to-deploy"
+delta = "0.1.14 -> 0.1.15"
+aggregated-from = "https://raw.githubusercontent.com/zcash/librustzcash/main/supply-chain/audits.toml"
+
+[[audits.tokio-util]]
+who = "Daira-Emma Hopwood <daira@jacaranda.org>"
+criteria = "safe-to-deploy"
+delta = "0.7.10 -> 0.7.11"
+aggregated-from = "https://raw.githubusercontent.com/zcash/librustzcash/main/supply-chain/audits.toml"
+
 [[audits.toml_datetime]]
 who = "Jack Grigg <jack@z.cash>"
 criteria = "safe-to-deploy"
@@ -3037,6 +3378,18 @@ who = "Jack Grigg <jack@electriccoin.co>"
 criteria = "safe-to-deploy"
 delta = "0.19.15 -> 0.20.2"
 aggregated-from = "https://raw.githubusercontent.com/zcash/zcash/master/qa/supply-chain/audits.toml"
+
+[[audits.tonic]]
+who = "Daira-Emma Hopwood <daira@jacaranda.org>"
+criteria = "safe-to-deploy"
+delta = "0.10.2 -> 0.11.0"
+aggregated-from = "https://raw.githubusercontent.com/zcash/librustzcash/main/supply-chain/audits.toml"
+
+[[audits.tonic-build]]
+who = "Daira-Emma Hopwood <daira@jacaranda.org>"
+criteria = "safe-to-deploy"
+delta = "0.10.2 -> 0.11.0"
+aggregated-from = "https://raw.githubusercontent.com/zcash/librustzcash/main/supply-chain/audits.toml"
 
 [[audits.tracing-appender]]
 who = "Jack Grigg <jack@electriccoin.co>"
@@ -3188,6 +3541,12 @@ criteria = ["safe-to-deploy", "crypto-reviewed"]
 version = "0.2.0"
 aggregated-from = "https://raw.githubusercontent.com/zcash/zcash/master/qa/supply-chain/audits.toml"
 
+[[audits.walkdir]]
+who = "Daira-Emma Hopwood <daira@jacaranda.org>"
+criteria = "safe-to-run"
+delta = "2.4.0 -> 2.5.0"
+aggregated-from = "https://raw.githubusercontent.com/zcash/librustzcash/main/supply-chain/audits.toml"
+
 [[audits.want]]
 who = "Jack Grigg <jack@electriccoin.co>"
 criteria = "safe-to-deploy"
@@ -3201,8 +3560,20 @@ aggregated-from = "https://raw.githubusercontent.com/zcash/zcash/master/qa/suppl
 [[audits.wasm-bindgen-backend]]
 who = "Daira-Emma Hopwood <daira@jacaranda.org>"
 criteria = "safe-to-deploy"
+delta = "0.2.88 -> 0.2.89"
+aggregated-from = "https://raw.githubusercontent.com/zcash/librustzcash/main/supply-chain/audits.toml"
+
+[[audits.wasm-bindgen-backend]]
+who = "Daira-Emma Hopwood <daira@jacaranda.org>"
+criteria = "safe-to-deploy"
 delta = "0.2.89 -> 0.2.92"
 aggregated-from = "https://raw.githubusercontent.com/zcash/zcash/master/qa/supply-chain/audits.toml"
+
+[[audits.wasm-bindgen-macro]]
+who = "Daira-Emma Hopwood <daira@jacaranda.org>"
+criteria = "safe-to-deploy"
+delta = "0.2.88 -> 0.2.89"
+aggregated-from = "https://raw.githubusercontent.com/zcash/librustzcash/main/supply-chain/audits.toml"
 
 [[audits.wasm-bindgen-macro]]
 who = "Jack Grigg <jack@electriccoin.co>"
@@ -3256,8 +3627,21 @@ aggregated-from = "https://raw.githubusercontent.com/zcash/zcash/master/qa/suppl
 [[audits.web-sys]]
 who = "Daira-Emma Hopwood <daira@jacaranda.org>"
 criteria = "safe-to-deploy"
+delta = "0.3.65 -> 0.3.66"
+aggregated-from = "https://raw.githubusercontent.com/zcash/librustzcash/main/supply-chain/audits.toml"
+
+[[audits.web-sys]]
+who = "Daira-Emma Hopwood <daira@jacaranda.org>"
+criteria = "safe-to-deploy"
 delta = "0.3.66 -> 0.3.69"
 aggregated-from = "https://raw.githubusercontent.com/zcash/zcash/master/qa/supply-chain/audits.toml"
+
+[[audits.webpki-roots]]
+who = "Daira-Emma Hopwood <daira@jacaranda.org>"
+criteria = "safe-to-deploy"
+delta = "0.25.2 -> 0.25.4"
+notes = "I have not checked consistency with the Mozilla IncludedCACertificateReportPEMCSV report."
+aggregated-from = "https://raw.githubusercontent.com/zcash/librustzcash/main/supply-chain/audits.toml"
 
 [[audits.which]]
 who = "Jack Grigg <jack@z.cash>"
@@ -3275,6 +3659,12 @@ Crate now has `#![forbid(unsafe_code)]`, replacing its last `unsafe` block with 
 dependency on the `rustix` crate.
 """
 aggregated-from = "https://raw.githubusercontent.com/zcash/zcash/master/qa/supply-chain/audits.toml"
+
+[[audits.winapi-util]]
+who = "Daira-Emma Hopwood <daira@jacaranda.org>"
+criteria = "safe-to-run"
+delta = "0.1.6 -> 0.1.8"
+aggregated-from = "https://raw.githubusercontent.com/zcash/librustzcash/main/supply-chain/audits.toml"
 
 [[audits.winnow]]
 who = "Jack Grigg <jack@electriccoin.co>"
@@ -3296,16 +3686,34 @@ delta = "2.5.0 -> 2.5.2"
 aggregated-from = "https://raw.githubusercontent.com/zcash/zcash/master/qa/supply-chain/audits.toml"
 
 [[audits.zerocopy]]
+who = "Daira-Emma Hopwood <daira@jacaranda.org>"
+criteria = "safe-to-deploy"
+delta = "0.7.32 -> 0.7.34"
+aggregated-from = "https://raw.githubusercontent.com/zcash/librustzcash/main/supply-chain/audits.toml"
+
+[[audits.zerocopy]]
 who = "Jack Grigg <jack@electriccoin.co>"
 criteria = "safe-to-deploy"
 delta = "0.7.31 -> 0.7.32"
 aggregated-from = "https://raw.githubusercontent.com/zcash/zcash/master/qa/supply-chain/audits.toml"
 
 [[audits.zerocopy-derive]]
+who = "Daira-Emma Hopwood <daira@jacaranda.org>"
+criteria = "safe-to-deploy"
+delta = "0.7.32 -> 0.7.34"
+aggregated-from = "https://raw.githubusercontent.com/zcash/librustzcash/main/supply-chain/audits.toml"
+
+[[audits.zerocopy-derive]]
 who = "Jack Grigg <jack@electriccoin.co>"
 criteria = "safe-to-deploy"
 delta = "0.7.31 -> 0.7.32"
 aggregated-from = "https://raw.githubusercontent.com/zcash/zcash/master/qa/supply-chain/audits.toml"
+
+[[audits.zeroize]]
+who = "Daira-Emma Hopwood <daira@jacaranda.org>"
+criteria = "safe-to-deploy"
+delta = "1.6.0 -> 1.7.0"
+aggregated-from = "https://raw.githubusercontent.com/zcash/librustzcash/main/supply-chain/audits.toml"
 
 [[audits.zeroize]]
 who = "Daira Hopwood <daira@jacaranda.org>"
@@ -3583,6 +3991,13 @@ user-id = 64539
 start = "2021-10-28"
 end = "2024-06-21"
 aggregated-from = "https://raw.githubusercontent.com/zcash/zcash/master/qa/supply-chain/audits.toml"
+
+[[trusted.windows_i686_gnullvm]]
+criteria = "safe-to-deploy"
+user-id = 64539
+start = "2024-04-02"
+end = "2025-05-15"
+aggregated-from = "https://raw.githubusercontent.com/zcash/librustzcash/main/supply-chain/audits.toml"
 
 [[trusted.windows_i686_msvc]]
 criteria = "safe-to-deploy"
