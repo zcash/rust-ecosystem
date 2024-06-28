@@ -235,6 +235,16 @@ criteria = "safe-to-deploy"
 delta = "0.9.0 -> 0.10.1"
 aggregated-from = "https://raw.githubusercontent.com/zcash/zcash/master/qa/supply-chain/audits.toml"
 
+[[audits.bip32]]
+who = "Jack Grigg <jack@electriccoin.co>"
+criteria = "safe-to-deploy"
+version = "0.5.1"
+notes = """
+- Crate has no unsafe code, and sets `#![forbid(unsafe_code)]`.
+- Crate has no powerful imports. Only filesystem acces is via `include_str!`, and is safe.
+"""
+aggregated-from = "https://raw.githubusercontent.com/zcash/librustzcash/main/supply-chain/audits.toml"
+
 [[audits.bitflags]]
 who = "Jack Grigg <jack@electriccoin.co>"
 criteria = "safe-to-deploy"
@@ -2669,6 +2679,12 @@ criteria = "safe-to-deploy"
 delta = "1.1.0 -> 1.2.0"
 notes = "Only change to an `unsafe` block is to replace a `mem::forget` with `ManuallyDrop`."
 aggregated-from = "https://raw.githubusercontent.com/zcash/zcash/master/qa/supply-chain/audits.toml"
+
+[[audits.secp256k1]]
+who = "Jack Grigg <jack@electriccoin.co>"
+criteria = ["safe-to-deploy", "crypto-reviewed"]
+delta = "0.26.0 -> 0.27.0"
+aggregated-from = "https://raw.githubusercontent.com/zcash/librustzcash/main/supply-chain/audits.toml"
 
 [[audits.semver]]
 who = "Jack Grigg <jack@electriccoin.co>"
