@@ -1659,6 +1659,17 @@ criteria = "safe-to-deploy"
 delta = "0.3.3 -> 0.3.9"
 aggregated-from = "https://raw.githubusercontent.com/zcash/zcash/master/qa/supply-chain/audits.toml"
 
+[[audits.home]]
+who = "Jack Grigg <jack@electriccoin.co>"
+criteria = "safe-to-deploy"
+delta = "0.5.5 -> 0.5.9"
+notes = """
+`unsafe` changes are to switch Windows logic from `SHGetFolderPathW` to
+`SHGetKnownFolderPath`. I checked that the parameters and return values were
+being handled correctly per the Windows documentation.
+"""
+aggregated-from = "https://raw.githubusercontent.com/zcash/librustzcash/main/supply-chain/audits.toml"
+
 [[audits.http]]
 who = "Jack Grigg <jack@electriccoin.co>"
 criteria = "safe-to-deploy"
@@ -4096,6 +4107,12 @@ notes = "I have not checked consistency with the Mozilla IncludedCACertificateRe
 aggregated-from = "https://raw.githubusercontent.com/zcash/librustzcash/main/supply-chain/audits.toml"
 
 [[audits.which]]
+who = "Jack Grigg <jack@electriccoin.co>"
+criteria = "safe-to-deploy"
+delta = "6.0.1 -> 6.0.3"
+aggregated-from = "https://raw.githubusercontent.com/zcash/librustzcash/main/supply-chain/audits.toml"
+
+[[audits.which]]
 who = "Jack Grigg <jack@z.cash>"
 criteria = "safe-to-deploy"
 delta = "4.3.0 -> 4.4.0"
@@ -4329,15 +4346,15 @@ aggregated-from = "https://raw.githubusercontent.com/zcash/zcash/master/qa/suppl
 
 [[trusted.incrementalmerkletree]]
 criteria = "safe-to-deploy"
-user-id = 6289
-start = "2021-12-17"
+user-id = 1244
+start = "2021-06-24"
 end = "2025-04-22"
 aggregated-from = "https://raw.githubusercontent.com/zcash/librustzcash/main/supply-chain/audits.toml"
 
 [[trusted.incrementalmerkletree]]
 criteria = "safe-to-deploy"
-user-id = 1244
-start = "2021-06-24"
+user-id = 6289
+start = "2021-12-17"
 end = "2025-04-22"
 aggregated-from = "https://raw.githubusercontent.com/zcash/librustzcash/main/supply-chain/audits.toml"
 
@@ -4384,10 +4401,10 @@ end = "2025-10-02"
 aggregated-from = "https://raw.githubusercontent.com/zcash/zcash/master/qa/supply-chain/audits.toml"
 
 [[trusted.orchard]]
-criteria = ["safe-to-deploy", "crypto-reviewed", "license-reviewed"]
-user-id = 6289
-start = "2021-01-07"
-end = "2025-04-22"
+criteria = "safe-to-deploy"
+user-id = 169181
+start = "2024-08-12"
+end = "2025-08-12"
 aggregated-from = "https://raw.githubusercontent.com/zcash/librustzcash/main/supply-chain/audits.toml"
 
 [[trusted.orchard]]
@@ -4398,10 +4415,10 @@ end = "2025-04-22"
 aggregated-from = "https://raw.githubusercontent.com/zcash/librustzcash/main/supply-chain/audits.toml"
 
 [[trusted.orchard]]
-criteria = "safe-to-deploy"
-user-id = 169181
-start = "2024-08-12"
-end = "2025-08-12"
+criteria = ["safe-to-deploy", "crypto-reviewed", "license-reviewed"]
+user-id = 6289
+start = "2021-01-07"
+end = "2025-04-22"
 aggregated-from = "https://raw.githubusercontent.com/zcash/librustzcash/main/supply-chain/audits.toml"
 
 [[trusted.orchard]]
@@ -4431,19 +4448,19 @@ user-id = 169181
 start = "2024-08-12"
 end = "2025-10-02"
 aggregated-from = "https://raw.githubusercontent.com/zcash/zcash/master/qa/supply-chain/audits.toml"
+
+[[trusted.sapling-crypto]]
+criteria = "safe-to-deploy"
+user-id = 169181
+start = "2024-08-12"
+end = "2025-08-12"
+aggregated-from = "https://raw.githubusercontent.com/zcash/librustzcash/main/supply-chain/audits.toml"
 
 [[trusted.sapling-crypto]]
 criteria = ["safe-to-deploy", "crypto-reviewed"]
 user-id = 6289
 start = "2024-01-26"
 end = "2025-04-22"
-aggregated-from = "https://raw.githubusercontent.com/zcash/librustzcash/main/supply-chain/audits.toml"
-
-[[trusted.sapling-crypto]]
-criteria = "safe-to-deploy"
-user-id = 169181
-start = "2024-08-12"
-end = "2025-08-12"
 aggregated-from = "https://raw.githubusercontent.com/zcash/librustzcash/main/supply-chain/audits.toml"
 
 [[trusted.sapling-crypto]]
@@ -4686,6 +4703,13 @@ aggregated-from = "https://raw.githubusercontent.com/zcash/librustzcash/main/sup
 
 [[trusted.zcash_client_sqlite]]
 criteria = "safe-to-deploy"
+user-id = 6289
+start = "2020-06-25"
+end = "2025-10-22"
+aggregated-from = "https://raw.githubusercontent.com/zcash/librustzcash/main/supply-chain/audits.toml"
+
+[[trusted.zcash_client_sqlite]]
+criteria = "safe-to-deploy"
 user-id = 169181
 start = "2024-03-25"
 end = "2025-04-22"
@@ -4762,10 +4786,10 @@ end = "2024-09-21"
 aggregated-from = "https://raw.githubusercontent.com/zcash/zcash/master/qa/supply-chain/audits.toml"
 
 [[trusted.zcash_primitives]]
-criteria = ["safe-to-deploy", "crypto-reviewed", "license-reviewed"]
-user-id = 6289
-start = "2021-03-26"
-end = "2025-04-22"
+criteria = "safe-to-deploy"
+user-id = 169181
+start = "2024-08-20"
+end = "2025-08-26"
 aggregated-from = "https://raw.githubusercontent.com/zcash/librustzcash/main/supply-chain/audits.toml"
 
 [[trusted.zcash_primitives]]
@@ -4776,10 +4800,10 @@ end = "2025-04-22"
 aggregated-from = "https://raw.githubusercontent.com/zcash/librustzcash/main/supply-chain/audits.toml"
 
 [[trusted.zcash_primitives]]
-criteria = "safe-to-deploy"
-user-id = 169181
-start = "2024-08-20"
-end = "2025-08-26"
+criteria = ["safe-to-deploy", "crypto-reviewed", "license-reviewed"]
+user-id = 6289
+start = "2021-03-26"
+end = "2025-04-22"
 aggregated-from = "https://raw.githubusercontent.com/zcash/librustzcash/main/supply-chain/audits.toml"
 
 [[trusted.zcash_primitives]]
@@ -4811,17 +4835,17 @@ end = "2025-10-02"
 aggregated-from = "https://raw.githubusercontent.com/zcash/zcash/master/qa/supply-chain/audits.toml"
 
 [[trusted.zcash_proofs]]
-criteria = ["safe-to-deploy", "crypto-reviewed", "license-reviewed"]
-user-id = 6289
-start = "2021-03-26"
-end = "2025-04-22"
-aggregated-from = "https://raw.githubusercontent.com/zcash/librustzcash/main/supply-chain/audits.toml"
-
-[[trusted.zcash_proofs]]
 criteria = "safe-to-deploy"
 user-id = 169181
 start = "2024-08-20"
 end = "2025-08-26"
+aggregated-from = "https://raw.githubusercontent.com/zcash/librustzcash/main/supply-chain/audits.toml"
+
+[[trusted.zcash_proofs]]
+criteria = ["safe-to-deploy", "crypto-reviewed", "license-reviewed"]
+user-id = 6289
+start = "2021-03-26"
+end = "2025-04-22"
 aggregated-from = "https://raw.githubusercontent.com/zcash/librustzcash/main/supply-chain/audits.toml"
 
 [[trusted.zcash_proofs]]
