@@ -27,7 +27,7 @@ jobs:
       - run: rustup override set ${{steps.toolchain.outputs.name}}
 
       - name: Install cargo-vet
-        run: cargo install cargo-vet --version ~0.9
+        run: cargo install cargo-vet --version ~0.10
 
       - name: Aggregate audits
         run: cargo vet aggregate --output-file supply-chain/audits.toml supply-chain/sources.txt
