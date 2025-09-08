@@ -33,7 +33,7 @@ jobs:
         run: cargo vet aggregate --output-file supply-chain/audits.toml supply-chain/sources.txt
 
       - name: Commit and push aggregated audits
-        uses: stefanzweifel/git-auto-commit-action@v5
+        uses: stefanzweifel/git-auto-commit-action@v6
         with:
           commit_message: Update aggregated cargo-vet audits
           file_pattern: 'supply-chain/audits.toml'
