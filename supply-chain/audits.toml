@@ -5084,6 +5084,13 @@ delta = "0.15.1 -> 0.16.0"
 notes = "The primary change here is the switch from the `hdwallet` dependency to using `bip32`."
 aggregated-from = "https://raw.githubusercontent.com/zcash/librustzcash/main/supply-chain/audits.toml"
 
+[[audits.zcash_primitives]]
+who = "Kris Nuttycombe <kris@nutty.land>"
+criteria = "safe-to-deploy"
+delta = "0.24.0 -> 0.24.1"
+notes = "No added unsafe code or dangerous methods."
+aggregated-from = "https://raw.githubusercontent.com/zcash/librustzcash/main/supply-chain/audits.toml"
+
 [[audits.zcash_proofs]]
 who = "Kris Nuttycombe <kris@nutty.land>"
 criteria = "safe-to-deploy"
@@ -6140,6 +6147,13 @@ start = "2022-08-31"
 end = "2026-04-08"
 aggregated-from = "https://raw.githubusercontent.com/zcash/wallet/main/supply-chain/audits.toml"
 
+[[trusted.zcash_script]]
+criteria = "safe-to-deploy"
+user-id = 159631
+start = "2022-08-31"
+end = "2026-09-19"
+aggregated-from = "https://raw.githubusercontent.com/zcash/librustzcash/main/supply-chain/audits.toml"
+
 [[trusted.zcash_spec]]
 criteria = "safe-to-deploy"
 user-id = 199950
@@ -6216,6 +6230,13 @@ user-id = 6289
 start = "2023-12-06"
 end = "2025-04-22"
 aggregated-from = "https://raw.githubusercontent.com/zcash/librustzcash/main/supply-chain/audits.toml"
+
+[[trusted.zip32]]
+criteria = "safe-to-deploy"
+user-id = 6289
+start = "2023-12-06"
+end = "2026-09-17"
+aggregated-from = "https://raw.githubusercontent.com/zcash/wallet/main/supply-chain/audits.toml"
 
 [[trusted.zip32]]
 criteria = "safe-to-deploy"
