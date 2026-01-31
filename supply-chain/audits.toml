@@ -240,6 +240,22 @@ criteria = "safe-to-deploy"
 delta = "1.0.95 -> 1.0.97"
 aggregated-from = "https://raw.githubusercontent.com/zcash/wallet/main/supply-chain/audits.toml"
 
+[[audits.anyhow]]
+who = "Jack Grigg <jack@electriccoin.co>"
+criteria = "safe-to-deploy"
+delta = "1.0.97 -> 1.0.100"
+notes = """
+Changes to the build script are to enable reusing the probe file within the crate, enable
+more features on newer Rust versions, and catch more errors.
+
+Most of the changes to `unsafe` code are refactors to surrounding safe code, and not
+actually altering the `unsafe` blocks. The new instances of `unsafe` are to allow errors
+to be converted to `Box<dyn std::error:Error>` in a way that supports downcasting (at the
+cost of backtraces), via a new vtable method. The `unsafe` blocks in the new code appear
+to match how boxing and downcasting logic is done in other existing vtable methods.
+"""
+aggregated-from = "https://raw.githubusercontent.com/zcash/librustzcash/main/supply-chain/audits.toml"
+
 [[audits.arrayref]]
 who = "Sean Bowe <ewillbefull@gmail.com>"
 criteria = "safe-to-deploy"
@@ -1485,16 +1501,37 @@ criteria = "safe-to-deploy"
 delta = "0.20.9 -> 0.20.10"
 aggregated-from = "https://raw.githubusercontent.com/zcash/librustzcash/main/supply-chain/audits.toml"
 
+[[audits.darling]]
+who = "Schell Carl Scivally <efsubenovex@gmail.com>"
+criteria = "safe-to-deploy"
+delta = "0.20.10 -> 0.21.3"
+notes = "Mostly added tests and documentation. The bulk of the changes were made to `darling_core`."
+aggregated-from = "https://raw.githubusercontent.com/zcash/librustzcash/main/supply-chain/audits.toml"
+
 [[audits.darling_core]]
 who = "Jack Grigg <jack@electriccoin.co>"
 criteria = "safe-to-deploy"
 delta = "0.20.9 -> 0.20.10"
 aggregated-from = "https://raw.githubusercontent.com/zcash/librustzcash/main/supply-chain/audits.toml"
 
+[[audits.darling_core]]
+who = "Schell Carl Scivally <efsubenovex@gmail.com>"
+criteria = "safe-to-deploy"
+delta = "0.20.10 -> 0.21.3"
+notes = "No unsafe, just helpers for proc-macros."
+aggregated-from = "https://raw.githubusercontent.com/zcash/librustzcash/main/supply-chain/audits.toml"
+
 [[audits.darling_macro]]
 who = "Jack Grigg <jack@electriccoin.co>"
 criteria = "safe-to-deploy"
 delta = "0.20.9 -> 0.20.10"
+aggregated-from = "https://raw.githubusercontent.com/zcash/librustzcash/main/supply-chain/audits.toml"
+
+[[audits.darling_macro]]
+who = "Schell Carl Scivally <efsubenovex@gmail.com>"
+criteria = "safe-to-deploy"
+delta = "0.20.10 -> 0.20.11"
+notes = "Only includes changes to cargo packaging, the library source itself is unchanged."
 aggregated-from = "https://raw.githubusercontent.com/zcash/librustzcash/main/supply-chain/audits.toml"
 
 [[audits.darling_macro]]
@@ -1631,7 +1668,7 @@ delta = "1.0.19 -> 1.0.20"
 notes = """
 Changes to `unsafe` code:
 - Migrating to `core::ptr::addr_of_mut!()` with MSRV bump.
-- Gating a function that uses `unsafe` behind `target_has_atomic = \"ptr\"`.
+- Gating a function that uses `unsafe` behind `target_has_atomic = "ptr"`.
 """
 aggregated-from = "https://raw.githubusercontent.com/zcash/wallet/main/supply-chain/audits.toml"
 
@@ -2694,7 +2731,7 @@ Uses `unsafe` blocks to interact with `windows-sys` crate.
 - The slice constructed from the `PWSTR` correctly goes out of scope before
   `guard` is dropped.
 - A code comment says that `path_ptr` is valid for `len` bytes, but `PCWSTR` is
-  a `*const u16` and `lstrlenW` returns its length \"in characters\" (which the
+  a `*const u16` and `lstrlenW` returns its length "in characters" (which the
   Windows documentation confirms means the number of `WCHAR` values). This is
   likely a typo; the code checks that `len * size_of::<u16>() <= isize::MAX`.
 """
@@ -2971,8 +3008,8 @@ based on what I've seen in other uses of the windows-sys crate. Unsafe code
 falls into two categories:
 - Usage of `mem::zeroed()`, which doesn't look obviously wrong. The
   `..unsafe { mem::zeroed() }` in `sys::unix::selector::kqueue` looks weird
-  but AFAICT is saying \"take any unspecified fields from an instance of this
-  struct that has been zero-initialized\", which is fine for integer fields. It
+  but AFAICT is saying "take any unspecified fields from an instance of this
+  struct that has been zero-initialized", which is fine for integer fields. It
   would be nice if there was documentation to this effect (explaining why this
   is done instead of `..Default::default()`).
 - Calls to Windows API methods. These are either pre-existing (and altered for
@@ -3182,7 +3219,7 @@ delta = "1.2.2 -> 1.2.3"
 notes = """
 Changes to `unsafe` code are to replace individual `target_os` cfg flags for
 Apple targets that gate functions containing `unsafe` blocks, with a
-`target_vendor = \"apple\"`.
+`target_vendor = "apple"`.
 """
 aggregated-from = "https://raw.githubusercontent.com/zcash/wallet/main/supply-chain/audits.toml"
 
@@ -3457,8 +3494,8 @@ who = "Daira Emma Hopwood <daira@jacaranda.org>"
 criteria = "safe-to-deploy"
 version = "3.0.2"
 notes = """
-This crate uses `#![forbid(unsafe_code)]` and its build script is safe. It only \"provides programmatic access to
-information about valid Rust platforms, sourced from the Rust compiler\"; it does not attempt any detection that
+This crate uses `#![forbid(unsafe_code)]` and its build script is safe. It only "provides programmatic access to
+information about valid Rust platforms, sourced from the Rust compiler"; it does not attempt any detection that
 would require unsafety.
 """
 aggregated-from = "https://raw.githubusercontent.com/zcash/zcash/master/qa/supply-chain/audits.toml"
@@ -4145,13 +4182,13 @@ delta = "0.21.8 -> 0.21.12"
 notes = """
 A comment in get_sni_extension asks whether the behaviour of parsing an IPv4 or IPv6 address
 in a host_name field of a server_name extension, but then ignoring the extension (because
-'Literal IPv4 and IPv6 addresses are not permitted in \"HostName\"'), as the server, is
+'Literal IPv4 and IPv6 addresses are not permitted in "HostName"'), as the server, is
 compliant with RFC 6066. As an original author of RFC 3546 which has very similar wording,
 I can speak to the intent: yes this is fine. The client is clearly nonconformant in this
 case, but the server isn't.
 
-RFC 3546 said \"If the server understood the client hello extension but does not recognize
-the server name, it SHOULD send an \"unrecognized_name\" alert (which MAY be fatal).\"
+RFC 3546 said "If the server understood the client hello extension but does not recognize
+the server name, it SHOULD send an "unrecognized_name" alert (which MAY be fatal)."
 This wording was preserved in RFC 5746, and then updated in RFC 6066 to:
 
    If the server understood the ClientHello extension but
@@ -4169,9 +4206,9 @@ This wording was preserved in RFC 5746, and then updated in RFC 6066 to:
 
 To me it's clear that it is reasonable to consider an IP address as a name that the
 server does not recognize. And so the server SHOULD *either* send a fatal unrecognized_name
-alert, *or* continue the handshake and let the client application decide when it \"performs
-the server endpoint identification\". There's no conformance requirement for the server to
-take any notice of a host_name that is \"not permitted\". (It would have been clearer to
+alert, *or* continue the handshake and let the client application decide when it "performs
+the server endpoint identification". There's no conformance requirement for the server to
+take any notice of a host_name that is "not permitted". (It would have been clearer to
 express this by specifying the allowed client and server behaviour separately, i.e. saying
 that the client MUST NOT send an IP address in host_name, and then explicitly specifying
 the server behaviour if it does so anyway. That's how I would write it now. But honestly
@@ -4270,6 +4307,28 @@ aggregated-from = "https://raw.githubusercontent.com/zcash/librustzcash/main/sup
 who = "Jack Grigg <jack@electriccoin.co>"
 criteria = "safe-to-deploy"
 delta = "0.4.8 -> 0.6.0"
+aggregated-from = "https://raw.githubusercontent.com/zcash/librustzcash/main/supply-chain/audits.toml"
+
+[[audits.schemars]]
+who = "Schell Carl Scivally <efsubenovex@gmail.com>"
+criteria = "safe-to-deploy"
+delta = "0.8.12 -> 0.9.0"
+notes = """
+The changes are primarily API refactoring and simplification, dependency updates, new type implementations, and feature flag reorganization.
+The crate changed from #![forbid(unsafe_code)] (line 9347) to #![deny(unsafe_code)] (line 9348), to accommodate the ref-cast crate integration which requires #[allow(unsafe_code)] on specific functions.
+The only notable change is the ref-cast usage which is a sound pattern for creating transparent newtype wrappers.
+"""
+aggregated-from = "https://raw.githubusercontent.com/zcash/librustzcash/main/supply-chain/audits.toml"
+
+[[audits.schemars]]
+who = "Schell Carl Scivally <efsubenovex@gmail.com>"
+criteria = "safe-to-deploy"
+delta = "0.9.0 -> 1.1.0"
+notes = """
+This update contains no unsafe code, no ambient capability usage, and no changes that could be exploited by untrusted input.
+The changes are purely schema generation logic improvements, API refinements, and dependency updates.
+This reverts a previous change that lowered #[forbid(unsafe_code)] to #[deny(unsafe_code)].
+"""
 aggregated-from = "https://raw.githubusercontent.com/zcash/librustzcash/main/supply-chain/audits.toml"
 
 [[audits.scopeguard]]
@@ -4554,6 +4613,20 @@ aggregated-from = "https://raw.githubusercontent.com/zcash/wallet/main/supply-ch
 who = "Jack Grigg <jack@electriccoin.co>"
 criteria = "safe-to-deploy"
 delta = "0.6.8 -> 1.0.3"
+aggregated-from = "https://raw.githubusercontent.com/zcash/librustzcash/main/supply-chain/audits.toml"
+
+[[audits.serde_with]]
+who = "Schell Carl Scivally <efsubenovex@gmail.com>"
+criteria = "safe-to-deploy"
+delta = "3.8.1 -> 3.16.0"
+notes = "No new unsafe, no new IO."
+aggregated-from = "https://raw.githubusercontent.com/zcash/librustzcash/main/supply-chain/audits.toml"
+
+[[audits.serde_with_macros]]
+who = "Schell Carl Scivally <efsubenovex@gmail.com>"
+criteria = "safe-to-deploy"
+delta = "3.8.1 -> 3.16.0"
+notes = "No new IO, mostly just machinery for deriving serde traits from Display."
 aggregated-from = "https://raw.githubusercontent.com/zcash/librustzcash/main/supply-chain/audits.toml"
 
 [[audits.sha2]]
@@ -6260,7 +6333,7 @@ criteria = "safe-to-deploy"
 delta = "0.2.0 -> 0.2.1"
 notes = """
 - Changes to `unsafe` code blocks are just formatting.
-- Changes to `extern fn`s are to declare them explicitly as `extern \"C\" fn`s.
+- Changes to `extern fn`s are to declare them explicitly as `extern "C" fn`s.
 """
 aggregated-from = "https://raw.githubusercontent.com/zcash/zcash/master/qa/supply-chain/audits.toml"
 
@@ -7929,13 +8002,6 @@ aggregated-from = "https://raw.githubusercontent.com/zcash/wallet/main/supply-ch
 criteria = "safe-to-deploy"
 user-id = 169181
 start = "2024-12-17"
-end = "2025-12-17"
-aggregated-from = "https://raw.githubusercontent.com/zcash/librustzcash/main/supply-chain/audits.toml"
-
-[[trusted.zcash_transparent]]
-criteria = "safe-to-deploy"
-user-id = 169181
-start = "2024-12-17"
 end = "2026-03-04"
 aggregated-from = "https://raw.githubusercontent.com/zcash/wallet/main/supply-chain/audits.toml"
 
@@ -7945,6 +8011,13 @@ user-id = 169181
 start = "2024-12-17"
 end = "2026-05-08"
 aggregated-from = "https://raw.githubusercontent.com/zcash/zcash/master/qa/supply-chain/audits.toml"
+
+[[trusted.zcash_transparent]]
+criteria = "safe-to-deploy"
+user-id = 169181
+start = "2024-12-17"
+end = "2026-12-18"
+aggregated-from = "https://raw.githubusercontent.com/zcash/librustzcash/main/supply-chain/audits.toml"
 
 [[trusted.zip32]]
 criteria = "safe-to-deploy"
